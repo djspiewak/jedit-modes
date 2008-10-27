@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+  <PROPS>
+    <PROPERTY NAME="lineComment" VALUE="%" />
+    <PROPERTY NAME="noWordSep" VALUE="\"/>
+	
+	<PROPERTY NAME="noTabs" VALUE="true"/>
+	<PROPERTY NAME="indentSize" VALUE="2" />
+	<PROPERTY NAME="tabSize" VALUE="2"/>
+  </PROPS>
+
+  <RULES IGNORE_CASE="FALSE">
+  	<IMPORT DELEGATE="latex::Core"/>
+	
+	<SEQ TYPE="KEYWORD1">\archap</SEQ>
+	<SEQ TYPE="KEYWORD1">\arf</SEQ>
+	
+	<SEQ TYPE="KEYWORD2">\exercise</SEQ>
+	
+	<SPAN_REGEXP MATCH_TYPE="KEYWORD1" DELEGATE="latex::VERBATIM">
+		<BEGIN>@@(\[.+\])*\s*</BEGIN>
+		<END>@@</END>
+	</SPAN_REGEXP>
+	
+	<SPAN MATCH_TYPE="KEYWORD1" DELEGATE="latex::VERBATIM">
+		<BEGIN>\@</BEGIN>
+		<END>@</END>
+	</SPAN>
+  </RULES>
+</MODE>

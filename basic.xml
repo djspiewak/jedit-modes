@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="lineComment" VALUE="REM" />
+	</PROPS>
+
+	<RULES IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+		
+		<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN>
+
+		<EOL_SPAN TYPE="COMMENT1">rem</EOL_SPAN>
+
+		<!-- Comparison operators -->
+		<SEQ TYPE="OPERATOR">&lt;</SEQ>
+		<SEQ TYPE="OPERATOR">&lt;=</SEQ>
+		<SEQ TYPE="OPERATOR">&gt;=</SEQ>
+		<SEQ TYPE="OPERATOR">&gt;</SEQ>
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		<SEQ TYPE="OPERATOR">&lt;&gt;</SEQ>
+
+		<!-- Arithmetic operators -->
+		<SEQ TYPE="OPERATOR">+</SEQ>
+		<SEQ TYPE="OPERATOR">-</SEQ>
+		<SEQ TYPE="OPERATOR">*</SEQ>
+		<SEQ TYPE="OPERATOR">/</SEQ>
+		<SEQ TYPE="OPERATOR">%</SEQ>
+
+		<KEYWORDS>
+			<!-- Conditional Statements -->
+			<KEYWORD1>if</KEYWORD1>
+			<KEYWORD1>then</KEYWORD1>
+			<KEYWORD1>else</KEYWORD1>
+			<KEYWORD1>elseif</KEYWORD1>
+			<KEYWORD1>select</KEYWORD1>
+			<KEYWORD1>case</KEYWORD1>
+			
+			<!-- I/O -->
+			<KEYWORD1>input</KEYWORD1>
+			<KEYWORD1>print</KEYWORD1>
+
+			<!-- Loop Statements -->
+			<!-- For..Next -->
+			<KEYWORD1>for</KEYWORD1>
+			<KEYWORD1>to</KEYWORD1>
+			<KEYWORD1>step</KEYWORD1>
+			<KEYWORD1>next</KEYWORD1>
+			<!-- Do..Loop -->
+			<KEYWORD1>do</KEYWORD1>
+			<KEYWORD1>while</KEYWORD1>
+			<!-- While..Wend -->
+			<KEYWORD1>wend</KEYWORD1>
+
+			<!-- Closing, Exit Statements -->
+			<KEYWORD1>exit</KEYWORD1>
+			<KEYWORD1>end</KEYWORD1>
+
+			<!-- Methods, Functions, Class, Properties, Variables -->
+			<KEYWORD1>let</KEYWORD1>
+			<KEYWORD1>label</KEYWORD1>
+
+			<!-- Declaration -->
+			<KEYWORD1>dim</KEYWORD1>
+
+			<!-- Miscellaneous -->
+			<KEYWORD1>goto</KEYWORD1>
+			<KEYWORD1>gosub</KEYWORD1>
+			<KEYWORD1>return</KEYWORD1>
+
+			<!-- Datatypes Constants/Literals -->
+			<KEYWORD3>false</KEYWORD3>
+			<KEYWORD3>true</KEYWORD3>
+			<KEYWORD3>null</KEYWORD3>
+
+			<!-- Math Functions -->
+			<KEYWORD2>atn</KEYWORD2>
+			<KEYWORD2>cos</KEYWORD2>
+			<KEYWORD2>sin</KEYWORD2>
+			<KEYWORD2>tan</KEYWORD2>
+			<KEYWORD2>exp</KEYWORD2>
+			<KEYWORD2>log</KEYWORD2>
+			<KEYWORD2>sqr</KEYWORD2>
+			<KEYWORD2>rnd</KEYWORD2>
+
+			<!-- Rounding -->
+			<KEYWORD2>abs</KEYWORD2>
+			<KEYWORD2>round</KEYWORD2>
+
+			<!-- Strings -->
+			<KEYWORD2>asc</KEYWORD2>
+			<KEYWORD2>ascb</KEYWORD2>
+			<KEYWORD2>ascw</KEYWORD2>
+			<KEYWORD2>chr</KEYWORD2>
+			<KEYWORD2>chrb</KEYWORD2>
+			<KEYWORD2>chrw</KEYWORD2>
+			<KEYWORD2>filter</KEYWORD2>
+			<KEYWORD2>instr</KEYWORD2>
+			<KEYWORD2>instrb</KEYWORD2>
+			<KEYWORD2>instrrev</KEYWORD2>
+			<KEYWORD2>join</KEYWORD2>
+			<KEYWORD2>len</KEYWORD2>
+			<KEYWORD2>lenb</KEYWORD2>
+			<KEYWORD2>lcase</KEYWORD2>
+			<KEYWORD2>ucase</KEYWORD2>
+			<KEYWORD2>left</KEYWORD2>
+			<KEYWORD2>leftb</KEYWORD2>
+			<KEYWORD2>mid</KEYWORD2>
+			<KEYWORD2>midb</KEYWORD2>
+			<KEYWORD2>right</KEYWORD2>
+			<KEYWORD2>rightb</KEYWORD2>
+			<KEYWORD2>replace</KEYWORD2>
+			<KEYWORD2>space</KEYWORD2>
+			<KEYWORD2>split</KEYWORD2>
+			<KEYWORD2>strcomp</KEYWORD2>
+			<KEYWORD2>string</KEYWORD2>
+			<KEYWORD2>strreverse</KEYWORD2>
+			<KEYWORD2>ltrim</KEYWORD2>
+			<KEYWORD2>rtrim</KEYWORD2>
+			<KEYWORD2>trim</KEYWORD2>
+		</KEYWORDS>
+	</RULES>
+</MODE>
+

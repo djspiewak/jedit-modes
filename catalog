@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODES SYSTEM "catalog.dtd">
+
+<MODES>
+	<MODE NAME="basic" FILE="basic.xml" FILE_NAME_GLOB="*.bas" />
+	<MODE NAME="cool" FILE="cool.xml" FILE_NAME_GLOB="*.cl" />
+	<MODE NAME="clojure" FILE="clojure.xml" FILE_NAME_GLOB="*.clj" />
+	<MODE NAME="c++" FILE="cplusplus.xml" FILE_NAME_GLOB="*.{cc,cpp,hh,hpp,cxx}" />
+	<MODE NAME="java" FILE="java.xml" FILE_NAME_GLOB="*.java" />
+	<MODE NAME="latex" FILE="latex.xml" FILE_NAME_GLOB="*.{tex,sty,ltx,bbl}" />
+	<MODE NAME="latex-martin" FILE="latex-martin.xml" FILE_NAME_GLOB="*.{src}" />
+	<MODE NAME="ocaml" FILE="ocaml.xml" FILE_NAME_GLOB="*.{ml,mli}" />
+	<MODE NAME="powershell" FILE="powershell.xml" FILE_NAME_GLOB="*.ps1" />
+	<MODE NAME="python" FILE="python.xml"
+				FILE_NAME_GLOB="*.{py,pyw,sc}"
+				FIRST_LINE_GLOB="#!*/*python*" />
+	<MODE NAME="scala" FILE="scala.xml" FILE_NAME_GLOB="*.scala" />
+	<MODE NAME="rest" FILE="rest.xml" FILE_NAME_GLOB="*.{rst,rest}" 
+					FIRST_LINE_GLOB="{===,~~~,---,+++}*"/>
+	<MODE NAME="rhtml" FILE="rhtml.xml" FILE_NAME_GLOB="*.rhtml"/>
+	<MODE NAME="sasylf" FILE="sasylf.xml" FILE_NAME_GLOB="*.slf"/>
+	<MODE NAME="shellscript" FILE="shellscript.xml"
+				FILE_NAME_GLOB="*.{csh,sh,bash}"
+				FIRST_LINE_GLOB="#!/*sh*" />
+	<MODE NAME="yaml" FILE="yaml.xml" FILE_NAME_GLOB="*.{yml,yaml}" />
+	<MODE NAME="yacc" FILE="yacc.xml" FILE_NAME_GLOB="*.y" />
+</MODES>
