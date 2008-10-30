@@ -120,6 +120,10 @@
 		<BEGIN>lemma</BEGIN>
 		<END>end lemma</END>
 	</SPAN>
+	
+	<KEYWORDS>
+		<KEYWORD1>and</KEYWORD1>
+	</KEYWORDS>
   </RULES>
   
   <RULES SET="THEOREM">
