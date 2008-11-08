@@ -10,8 +10,12 @@
 		<PROPERTY NAME="lineComment" VALUE=";" />
 		<PROPERTY NAME="noWordSep" VALUE="_-+?:" />
 		
-		<PROPERTY NAME="indentNextLines" VALUE="^.*\(.*$" />
-		<PROPERTY NAME="unindentNextLines" VALUE="^.*\).*$" />
+		<!-- <PROPERTY NAME="indentNextLines" VALUE="^.*\(.*$" /> -->
+		<!-- <PROPERTY NAME="unindentNextLines" VALUE="^.*\).*$" /> -->
+		<!-- <PROPERTY NAME="indentOpenBrackets" VALUE="(" /> -->
+		<!-- <PROPERTY NAME="indentCloseBrackets" VALUE=")" /> -->
+		<PROPERTY NAME="unalignedOpenBrackets" VALUE="(" />
+		<PROPERTY NAME="unalignedCloseBrackets" VALUE=")" />
 	</PROPS>
 
 	<RULES IGNORE_CASE="FALSE"
