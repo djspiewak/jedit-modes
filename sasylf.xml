@@ -10,9 +10,9 @@
     <PROPERTY NAME="lineUpClosingBracket" VALUE="false" />
 	
 	<PROPERTY NAME="indentThisLine" VALUE="^\s*by" />			<!-- doesn't work -->
-    <PROPERTY NAME="indentNextLines" VALUE="^\s*((lemma|theorem).*|case (rule\s*|.*?is)|is|(.*?by (induction|case analysis) on.*))"/>
+    <PROPERTY NAME="indentNextLines" VALUE="^\s*((lemma|theorem).*|case (rule\s*|.*?is)|(.*?by (induction|case analysis) on.*))"/>
 	<PROPERTY NAME="unindentThisLine" VALUE="^\s*(end.*|is)\s*$" />
-	<PROPERTY NAME="unindentNextLines" VALUE="^\s*(end.*|is)\s*$" />
+	<PROPERTY NAME="unindentNextLines" VALUE="^\s*(end.*)\s*$" />
     <PROPERTY NAME="doubleBracketIndent" VALUE="false" />
 	<PROPERTY NAME="electricKeys" VALUE="sd" />
 	
