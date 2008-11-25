@@ -4,78 +4,73 @@
 
 <MODE>
   <PROPS>
-    <PROPERTY NAME="lineUpClosingBracket" VALUE="false" />
-    <PROPERTY NAME="indentNextLines" VALUE="\s*((.*?then\s*|.*?else\s*|.*?begin\s*|.*?let.*|.*?in\s*|.*?while\s+.*?loop\s*|.*?of\s*|class\s+.*?is\s*)*)"/>
-    <PROPERTY NAME="doubleBracketIndent" VALUE="false" />
-	
+    <PROPERTY NAME="indentOpenBrackets" VALUE="{" />
+    <PROPERTY NAME="indentCloseBrackets" VALUE="}" />
+    <PROPERTY NAME="lineUpClosingBracket" VALUE="true" />
+    <PROPERTY NAME="lineComment" VALUE="//" />
     <PROPERTY NAME="noTabs" VALUE="true" />
     <PROPERTY NAME="tabSize" VALUE="2" />
     <PROPERTY NAME="indentSize" VALUE="2" />
-	
-    <PROPERTY NAME="wordBreakChars" VALUE=",+-=&lt;&gt;/?^&amp;*" />
   </PROPS>
   
-  <RULES ESCAPE="\" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
-    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
+  <RULES ESCAPE="\" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE" DIGIT_RE="\d+">
+  	<IMPORT DELEGATE="TYPES"/>
+  	
+    <SPAN TYPE="LITERAL1">
       <BEGIN>"</BEGIN>
       <END>"</END>
     </SPAN>
 
-    <EOL_SPAN TYPE="COMMENT1">--</EOL_SPAN>
-
-    <SEQ TYPE="OPERATOR">)</SEQ>
-    <SEQ TYPE="OPERATOR">=</SEQ>
-	<SEQ TYPE="OPERATOR">:=</SEQ>
-    <SEQ TYPE="OPERATOR">not</SEQ>
-    <SEQ TYPE="OPERATOR">div</SEQ>
-    <SEQ TYPE="OPERATOR">&lt;=</SEQ>
-    <SEQ TYPE="OPERATOR">+</SEQ>
-    <SEQ TYPE="OPERATOR">-</SEQ>
-    <SEQ TYPE="OPERATOR">*</SEQ>
-    <SEQ TYPE="OPERATOR">&lt;</SEQ>
-    <SEQ TYPE="OPERATOR">:</SEQ>
-    <SEQ TYPE="NULL">.</SEQ>
-
-    <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
-
+    <EOL_SPAN TYPE="COMMENT1">//</EOL_SPAN>
+	
+	<MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
+	
+	<SEQ TYPE="OPERATOR">{</SEQ>
+	<SEQ TYPE="OPERATOR">}</SEQ>
+	<SEQ TYPE="OPERATOR">(</SEQ>
+	<SEQ TYPE="OPERATOR">)</SEQ>
+	
+	<SEQ TYPE="OPERATOR">&lt;</SEQ>
+	<SEQ TYPE="OPERATOR">=</SEQ>
+	<SEQ TYPE="OPERATOR">=&gt;</SEQ>
+	
+	<SEQ TYPE="OPERATOR">+</SEQ>
+	<SEQ TYPE="OPERATOR">-</SEQ>
+	<SEQ TYPE="OPERATOR">*</SEQ>
+	<SEQ TYPE="OPERATOR">/</SEQ>
+	<SEQ TYPE="OPERATOR">^</SEQ>
+	
     <KEYWORDS>
-      <KEYWORD1>begin</KEYWORD1>
-      <KEYWORD1>case</KEYWORD1>
-      <KEYWORD1>class</KEYWORD1>
-      <KEYWORD1>else</KEYWORD1>
-      <KEYWORD1>elsif</KEYWORD1>
-      <KEYWORD1>end</KEYWORD1>
-      <KEYWORD1>esac</KEYWORD1>
-      <KEYWORD1>fi</KEYWORD1>
-      <KEYWORD1>if</KEYWORD1>
-      <KEYWORD1>in</KEYWORD1>
-      <KEYWORD1>is</KEYWORD1>
-      <KEYWORD1>let</KEYWORD1>
-      <KEYWORD1>loop</KEYWORD1>
-      <KEYWORD1>native</KEYWORD1>
-      <KEYWORD1>new</KEYWORD1>
-      <KEYWORD1>of</KEYWORD1>
-      <KEYWORD1>pool</KEYWORD1>
-      <KEYWORD1>then</KEYWORD1>
-      <KEYWORD1>when</KEYWORD1>
-      <KEYWORD1>while</KEYWORD1>
-	  
-      <KEYWORD2>void</KEYWORD2>
-	  
-      <KEYWORD4>true</KEYWORD4>
-      <KEYWORD4>false</KEYWORD4>
-      <KEYWORD4>super</KEYWORD4>
-      <KEYWORD4>self</KEYWORD4>
-	  
-	  <!-- built-in types -->
-      <KEYWORD2>Boolean</KEYWORD2>
-	  <KEYWORD2>Integer</KEYWORD2>
-	  <KEYWORD2>String</KEYWORD2>
-	  
-	  <KEYWORD3>Object</KEYWORD3>
-	  <KEYWORD3>IO</KEYWORD3>
-	  <KEYWORD3>Array</KEYWORD3>
+		<KEYWORD1>class</KEYWORD1>
+		<KEYWORD1>while</KEYWORD1>
+		<KEYWORD1>native</KEYWORD1>
+		<KEYWORD1>case</KEYWORD1>
+		<KEYWORD1>else</KEYWORD1>
+		<KEYWORD1>new</KEYWORD1>
+		<KEYWORD1>if</KEYWORD1>
+		<KEYWORD1>override</KEYWORD1>
+		<KEYWORD1>extends</KEYWORD1>
+		<KEYWORD1>def</KEYWORD1>
+		<KEYWORD1>var</KEYWORD1>
+		<KEYWORD1>match</KEYWORD1>
+		
+		<LITERAL3>super</LITERAL3>
+		<LITERAL3>false</LITERAL3>
+		<LITERAL3>true</LITERAL3>
+		<LITERAL3>null</LITERAL3>
+		
+		<OPERATOR>not</OPERATOR>
     </KEYWORDS>
+  </RULES>
+  
+  <RULES SET="TYPES" IGNORE_CASE="FALSE">
+  	<KEYWORDS>
+		<KEYWORD2>Object</KEYWORD2>
+		<KEYWORD2>String</KEYWORD2>
+		<KEYWORD2>Int</KEYWORD2>
+		<KEYWORD2>Boolean</KEYWORD2>
+		<KEYWORD2>Array</KEYWORD2>
+	</KEYWORDS>
   </RULES>
 </MODE>
 
