@@ -49,6 +49,10 @@
                         DELEGATE="XML_TAG">&lt;\/?\w*</SEQ_REGEXP>
 	
     <!-- string and character literals -->
+    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE">
+      <BEGIN>"""</BEGIN>
+      <END>"""</END>
+    </SPAN>
     <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
       <BEGIN>"</BEGIN>
       <END>"</END>
