@@ -22,7 +22,13 @@
   
   <RULES ESCAPE="\" IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE"
   		DIGIT_RE="(0[lL]?|[1-9]\d{0,9}(\d{0,9}[lL])?|0[xX]\p{XDigit}{1,8}(\p{XDigit}{0,8}[lL])?|0[0-7]{1,11}([0-7]{0,11}[lL])?|([0-9]+\.[0-9]*|\.[0-9]+)([eE][+-]?[0-9]+)?[fFdD]?|[0-9]+([eE][+-]?[0-9]+[fFdD]?|([eE][+-]?[0-9]+)?[fFdD]))">
-		
+	
+	<MARK_FOLLOWING TYPE="LABEL">@</MARK_FOLLOWING>
+	
+	<IMPORT DELEGATE="PRIMARY"/>
+  </RULES>
+  
+  <RULES SET="PRIMARY">
     <!-- Silly comment -->
     <SEQ TYPE="COMMENT1">/**/</SEQ>
 	
@@ -62,11 +68,6 @@
     <!-- symbol literals -->
     <SEQ_REGEXP HASH_CHAR="'" TYPE="LABEL">'[0-9a-zA-Z]([0-9a-zA-Z]|_.)*</SEQ_REGEXP>
 
-    <!-- annotations 
-    <SEQ_REGEXP HASH_CHAR="@" TYPE="LABEL"
-                       >@[[:alnum:]][\.|[:alnum:]]*[\+\*\-\%\/]*</SEQ_REGEXP>  -->
-
-
     <!-- type params between bracket pairs with -->
     <!-- nested ones within (griba2010@ya.com) -->    
     <SEQ_REGEXP HASH_CHAR="[" TYPE="LITERAL3"
@@ -95,6 +96,7 @@
     <SEQ TYPE="OPERATOR">&amp;</SEQ>
     <SEQ TYPE="OPERATOR">|</SEQ>
     <SEQ TYPE="OPERATOR">^</SEQ>
+    <SEQ TYPE="OPERATOR">`</SEQ>
     <SEQ TYPE="OPERATOR">~</SEQ>
     <SEQ TYPE="OPERATOR">}</SEQ>
     <SEQ TYPE="OPERATOR">{</SEQ>
@@ -104,8 +106,6 @@
     <SEQ TYPE="NULL">]</SEQ>
     <SEQ TYPE="NULL">[</SEQ>
     <SEQ TYPE="NULL">?</SEQ>
-    <MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE"
-      AT_LINE_START="TRUE">:</MARK_PREVIOUS>
     <SEQ TYPE="NULL">:</SEQ>
 
     <!-- after colon type descriptions (griba2010@ya.com) -->
@@ -114,13 +114,15 @@
 
     <!-- Function calls -->
     <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
-
-	<!-- Annotation types -->
-	<MARK_FOLLOWING TYPE="LABEL">@</MARK_FOLLOWING>
+	
+	<SPAN_REGEXP DELEGATE="PATTERN" MATCH_TYPE="KEYWORD1" AT_WORD_START="TRUE"
+	        HASH_CHARS="case" NO_LINE_BREAK="TRUE">
+		<BEGIN>case\s</BEGIN>
+		<END>=&gt;</END>
+	</SPAN_REGEXP>
 
     <KEYWORDS IGNORE_CASE="FALSE">
       <KEYWORD1>abstract</KEYWORD1>
-      <KEYWORD1>case</KEYWORD1>
       <KEYWORD1>catch</KEYWORD1>
       <KEYWORD1>class</KEYWORD1>
       <KEYWORD1>def</KEYWORD1>
@@ -247,6 +249,12 @@
 	  <LITERAL2>this</LITERAL2>
 	  <LITERAL2>true</LITERAL2>
     </KEYWORDS>
+  </RULES>
+  
+  <RULES SET="PATTERN" DEFAULT="NULL" IGNORE_CASE="FALSE">
+  	<IMPORT DELEGATE="PRIMARY"/>
+	
+	<SEQ TYPE="OPERATOR">@</SEQ>
   </RULES>
 
   <RULES SET="SCALADOC" DEFAULT="COMMENT3" IGNORE_CASE="TRUE">
