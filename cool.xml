@@ -8,6 +8,8 @@
     <PROPERTY NAME="indentCloseBrackets" VALUE="}" />
     <PROPERTY NAME="lineUpClosingBracket" VALUE="true" />
     <PROPERTY NAME="lineComment" VALUE="//" />
+    <PROPERTY NAME="commentStart" VALUE="/*" />
+    <PROPERTY NAME="commentEnd" VALUE="*/" />
     <PROPERTY NAME="noTabs" VALUE="true" />
     <PROPERTY NAME="tabSize" VALUE="2" />
     <PROPERTY NAME="indentSize" VALUE="2" />
@@ -20,6 +22,12 @@
     </SPAN>
 
     <EOL_SPAN TYPE="COMMENT1">//</EOL_SPAN>
+	
+    <SEQ TYPE="COMMENT1">/**/</SEQ>
+    <SPAN TYPE="COMMENT1">
+      <BEGIN>/*</BEGIN>
+      <END>*/</END>
+    </SPAN>
 	
 	<MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
 	
