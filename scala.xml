@@ -55,7 +55,7 @@
                         DELEGATE="XML_TAG">&lt;\/?\w*</SEQ_REGEXP>
 	
     <!-- string and character literals -->
-    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE">
+    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="FALSE">
       <BEGIN>"""</BEGIN>
       <END>"""</END>
     </SPAN>
@@ -122,6 +122,7 @@
 
     <KEYWORDS>
       <KEYWORD1>abstract</KEYWORD1>
+      <KEYWORD1>case</KEYWORD1>
       <KEYWORD1>catch</KEYWORD1>
       <KEYWORD1>class</KEYWORD1>
       <KEYWORD1>def</KEYWORD1>
