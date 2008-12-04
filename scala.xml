@@ -66,7 +66,7 @@
 	<SEQ_REGEXP HASH_CHAR="'" TYPE="LITERAL1">'([^']|\\.)'</SEQ_REGEXP>
 
     <!-- symbol literals -->
-    <SEQ_REGEXP HASH_CHAR="'" TYPE="LABEL">'[0-9a-zA-Z]([0-9a-zA-Z]|_.)*</SEQ_REGEXP>
+    <SEQ_REGEXP HASH_CHAR="'" TYPE="LABEL">'[0-9a-zA-Z&gt;&lt;=+]([0-9a-zA-Z&gt;&lt;=+]|_[0-9a-zA-Z&gt;&lt;=+])*</SEQ_REGEXP>
 
     <!-- type params between bracket pairs with -->
     <!-- nested ones within (griba2010@ya.com) -->    
