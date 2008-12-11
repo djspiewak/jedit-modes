@@ -13,10 +13,6 @@
 		<PROPERTY NAME="commentStart" VALUE="(comment" />
 		<PROPERTY NAME="commentEnd" VALUE=")" />
 		
-		<!-- <PROPERTY NAME="indentNextLines" VALUE="^.*\(.*$" /> -->
-		<!-- <PROPERTY NAME="unindentNextLines" VALUE="^.*\).*$" /> -->
-		<!-- <PROPERTY NAME="indentOpenBrackets" VALUE="(" /> -->
-		<!-- <PROPERTY NAME="indentCloseBrackets" VALUE=")" /> -->
 		<PROPERTY NAME="unalignedOpenBrackets" VALUE="(" />
 		<PROPERTY NAME="unalignedCloseBrackets" VALUE=")" />
 	</PROPS>
