@@ -7,8 +7,11 @@
 		<PROPERTY NAME="noTabs" VALUE="true" />
 		<PROPERTY NAME="tabSize" VALUE="2" />
 		<PROPERTY NAME="indentSize" VALUE="2" />
-		<PROPERTY NAME="lineComment" VALUE=";" />
 		<PROPERTY NAME="noWordSep" VALUE="_-+?:" />
+		
+		<PROPERTY NAME="lineComment" VALUE=";" />
+		<PROPERTY NAME="commentStart" VALUE="(comment" />
+		<PROPERTY NAME="commentEnd" VALUE=")" />
 		
 		<!-- <PROPERTY NAME="indentNextLines" VALUE="^.*\(.*$" /> -->
 		<!-- <PROPERTY NAME="unindentNextLines" VALUE="^.*\).*$" /> -->
@@ -22,6 +25,15 @@
 		HIGHLIGHT_DIGITS="TRUE"
 		NO_WORD_SEP="_-+?:"
 		DIGIT_RE="-?[0-9]+(\.[0-9]+M?|/[0-9]+)?">
+
+		<!--
+		Based on convention discussed here:
+			http://www.gigamonkeys.com/book/syntax-and-semantics.html
+		-->
+		<EOL_SPAN TYPE="COMMENT4">;;;;</EOL_SPAN>
+		<EOL_SPAN TYPE="COMMENT3">;;;</EOL_SPAN>
+		<EOL_SPAN TYPE="COMMENT2">;;</EOL_SPAN>
+		<EOL_SPAN TYPE="COMMENT1">;</EOL_SPAN>
 
 		<SEQ TYPE="OPERATOR">'</SEQ>
 
@@ -49,15 +61,6 @@
 		<SEQ TYPE="OPERATOR">}</SEQ>
 		
 		<!-- <SEQ TYPE="OPERATOR">.</SEQ> -->		<!-- breaks digit highlighting -->
-
-		<!--
-		Based on convention discussed here:
-			http://www.gigamonkeys.com/book/syntax-and-semantics.html
-		-->
-		<EOL_SPAN TYPE="COMMENT4">;;;;</EOL_SPAN>
-		<EOL_SPAN TYPE="COMMENT3">;;;</EOL_SPAN>
-		<EOL_SPAN TYPE="COMMENT2">;;</EOL_SPAN>
-		<EOL_SPAN TYPE="COMMENT1">;</EOL_SPAN>
 
 		<SPAN TYPE="LITERAL1" ESCAPE="\">
 			<BEGIN>"</BEGIN>
