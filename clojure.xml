@@ -23,7 +23,7 @@
 		NO_WORD_SEP="_-+?:"
 		DIGIT_RE="-?[0-9]+(\.[0-9]+M?|/[0-9]+)?">
 
-		<SEQ TYPE="OPERATOR">'(</SEQ>
+		<SEQ TYPE="OPERATOR">'</SEQ>
 
 		<SEQ_REGEXP TYPE="LITERAL1" AT_WORD_START="TRUE" HASH_CHAR="\">\\(tab|space|newline|.)</SEQ_REGEXP>
 		
