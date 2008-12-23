@@ -12,8 +12,17 @@
   </PROPS>
 
   <RULES IGNORE_CASE="FALSE">
-  	<IMPORT DELEGATE="latex::Core"/>
+	<IMPORT DELEGATE="extras"/>
 	
+  	<SPAN TYPE="MARKUP" DELEGATE="MartinTabularMode"><BEGIN>\begin{tabular}</BEGIN><END>\end{tabular}</END></SPAN>
+    <SPAN TYPE="MARKUP" DELEGATE="MartinTabularMode"><BEGIN>\begin{tabular*}</BEGIN><END>\end{tabular*}</END></SPAN>
+    <SPAN TYPE="MARKUP" DELEGATE="MartinTabularMode"><BEGIN>\begin{longtable}</BEGIN><END>\end{longtable}</END></SPAN>
+    <SPAN TYPE="MARKUP" DELEGATE="MartinTabbingMode"><BEGIN>\begin{tabbing}</BEGIN><END>\end{tabbing}</END></SPAN>
+  	
+  	<IMPORT DELEGATE="latex::Core"/>
+  </RULES>
+  
+  <RULES IGNORE_CASE="FALSE" SET="extras">
 	<SEQ TYPE="KEYWORD1">\archap</SEQ>
 	<SEQ TYPE="KEYWORD1">\arf</SEQ>
 	
@@ -28,5 +37,10 @@
 		<BEGIN>\@</BEGIN>
 		<END>@</END>
 	</SPAN>
+  </RULES>
+  
+  <RULES IGNORE_CASE="FALSE" SET="MartinTabularMode">
+	<IMPORT DELEGATE="extras"/>
+  	<IMPORT DELEGATE="latex::TabularMode"/>
   </RULES>
 </MODE>
