@@ -117,6 +117,7 @@
 			<KEYWORD1>catch</KEYWORD1>
 			<KEYWORD1>finally</KEYWORD1>
 			<KEYWORD1>in-ns</KEYWORD1>
+			<KEYWORD1>ns</KEYWORD1>
 			
 			<KEYWORD2>def-</KEYWORD2>
 			<KEYWORD2>defmacro</KEYWORD2>
