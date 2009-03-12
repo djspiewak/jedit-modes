@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="doubleBracketIndent" VALUE="false" />
+		<PROPERTY NAME="commentStart" VALUE="/*" />
+		<PROPERTY NAME="commentEnd" VALUE="*/" />
+		<PROPERTY NAME="lineComment" VALUE="//" />
+        <PROPERTY NAME="noTabs" VALUE="true" />
+        <PROPERTY NAME="tabSize" VALUE="2" />
+        <PROPERTY NAME="indentSize" VALUE="2" />
+		<PROPERTY NAME="wordBreakChars" VALUE=",+=&lt;&gt;/?^&amp;*" />
+	</PROPS>
+	
+	<RULES>
+		<IMPORT DELEGATE="COMMON"/>
+		
+		<!-- code block -->
+		<SPAN DELEGATE="scala::MAIN">
+			<BEGIN>%{</BEGIN>
+			<END>%}</END>
+		</SPAN>
+		
+		<SEQ_REGEXP TYPE="LITERAL3">&lt;[^&gt;]+&gt;</SEQ_REGEXP>
+		
+		<SPAN DELEGATE="GRAMMAR" MATCH_TYPE="KEYWORD3">
+			<BEGIN>%%</BEGIN>
+			<END>&#222;</END>
+		</SPAN>
+		
+		<KEYWORDS>
+			<KEYWORD3>%token</KEYWORD3>
+			<KEYWORD3>%type</KEYWORD3>
+			
+			<KEYWORD4>%left</KEYWORD4>
+			<KEYWORD4>%right</KEYWORD4>
+			<KEYWORD4>%nonassoc</KEYWORD4>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="COMMON">
+		<EOL_SPAN TYPE="COMMENT1">//</EOL_SPAN>
+		<SPAN TYPE="COMMENT2">
+			<BEGIN>/*</BEGIN>
+			<END>*/</END>
+		</SPAN>
+		
+		<SEQ_REGEXP TYPE="LITERAL1">'([^']|\\.)'</SEQ_REGEXP>
+	</RULES>
+	
+	<RULES SET="GRAMMAR">
+		<IMPORT DELEGATE="COMMON"/>
+		
+		<SEQ_REGEXP TYPE="LABEL">[^':\s]+\s*:</SEQ_REGEXP>
+		<SEQ TYPE="LABEL">|</SEQ>
+		
+		<SPAN DELEGATE="ACTION">
+			<BEGIN>{</BEGIN>
+			<END>}</END>
+		</SPAN>
+		
+		<SPAN DELEGATE="scala::MAIN" MATCH_TYPE="KEYWORD3">
+			<BEGIN>%%</BEGIN>
+			<END>&#222;</END>
+		</SPAN>
+	</RULES>
+	
+	<RULES SET="ACTION">
+		<MARK_FOLLOWING TYPE="MARKUP">$</MARK_FOLLOWING>.
+		
+		<IMPORT DELEGATE="scala::MAIN"/>
+	</RULES>
+</MODE>
