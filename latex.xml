@@ -1919,7 +1919,7 @@
     <SEQ TYPE="KEYWORD2">\centering</SEQ>
     <SEQ TYPE="KEYWORD1">\caption{</SEQ>
     <SEQ TYPE="KEYWORD1">\caption[</SEQ>
-    <SEQ TYPE="KEYWORD2">\c</SEQ>
+    <SEQ TYPE="KEYWORD2">\c{</SEQ>
     <SEQ TYPE="KEYWORD1">\b{</SEQ>
     <SEQ TYPE="KEYWORD3">\bottomnumber</SEQ>
     <SEQ TYPE="KEYWORD3">\bottomfraction</SEQ>
@@ -2300,7 +2300,7 @@
     <SEQ TYPE="KEYWORD2">\centering</SEQ>
     <SEQ TYPE="KEYWORD1">\caption{</SEQ>
     <SEQ TYPE="KEYWORD1">\caption[</SEQ>
-    <SEQ TYPE="KEYWORD2">\c</SEQ>
+    <SEQ TYPE="KEYWORD2">\c{</SEQ>
     <SEQ TYPE="KEYWORD1">\b{</SEQ>
     <SEQ TYPE="KEYWORD3">\bottomnumber</SEQ>
     <SEQ TYPE="KEYWORD3">\bottomfraction</SEQ>
