@@ -7,8 +7,8 @@
     <PROPERTY NAME="indentOpenBrackets" VALUE="{" />
     <PROPERTY NAME="indentCloseBrackets" VALUE="}" />
     <PROPERTY NAME="lineUpClosingBracket" VALUE="true" />
-    <PROPERTY NAME="indentPrevLine"
-      VALUE="\s*(((if|while)\s*\(|else\s*(\{|$)|else\s+if\s*\(|case\s+.+:|default:)[^;]*|for\s*\(.*)" />
+	<PROPERTY NAME="indentNextLine"
+	  VALUE="\s*(((if|while|else\s+if|for)\s*\(|else\s*).*\)|case.*=>)\s*$"/>
     <!-- set this to 'true' if you want to use GNU coding style -->
     <PROPERTY NAME="doubleBracketIndent" VALUE="false" />
     <PROPERTY NAME="commentStart" VALUE="/*" />
