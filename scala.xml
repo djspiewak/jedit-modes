@@ -68,10 +68,10 @@
     <!-- symbol literals -->
     <SEQ_REGEXP HASH_CHAR="'" TYPE="LABEL">'[0-9a-zA-Z&gt;&lt;=+]([0-9a-zA-Z&gt;&lt;=+]|_[0-9a-zA-Z&gt;&lt;=+])*</SEQ_REGEXP>
 
-    <!-- type params between bracket pairs with -->
-    <!-- nested ones within (griba2010@ya.com) -->    
-    <SEQ_REGEXP HASH_CHAR="[" TYPE="LITERAL3"
-                       >\[[^\[\]]*(\[[^\[\]]*(\[[^\[\]]*\][^\[\]]*)*\][^\[\]]*)*\]</SEQ_REGEXP>  
+    <SPAN MATCH_TYPE="LITERAL3" DELEGATE="TYPE_PARAMS">
+	  <BEGIN>[</BEGIN>
+	  <END>]</END>
+	</SPAN>
 
     <!-- type constraints (griba2010@ya.com) -->
     <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL2"
@@ -261,6 +261,13 @@
 	  <LITERAL2>this</LITERAL2>
 	  <LITERAL2>true</LITERAL2>
     </KEYWORDS>
+  </RULES>
+  
+  <RULES SET="TYPE_PARAMS" DEFAULT="LITERAL3">
+  	<SPAN MATCH_TYPE="LITERAL3" DELEGATE="TYPE_PARAMS">
+	  <BEGIN>[</BEGIN>
+	  <END>]</END>
+	</SPAN>
   </RULES>
   
   <RULES SET="PATTERN" DEFAULT="NULL" IGNORE_CASE="FALSE">
