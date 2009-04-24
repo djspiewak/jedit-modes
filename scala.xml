@@ -79,6 +79,7 @@
     <SEQ_REGEXP HASH_CHAR=">" TYPE="LITERAL2"
                        >&gt;:\s*\w+(\.\w+)*(#\w+)?</SEQ_REGEXP>
 
+    <SEQ TYPE="OPERATOR">(</SEQ>
     <SEQ TYPE="OPERATOR">)</SEQ>
     <SEQ TYPE="OPERATOR">=</SEQ>
     <SEQ TYPE="OPERATOR">!</SEQ>
