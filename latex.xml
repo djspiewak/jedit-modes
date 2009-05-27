@@ -179,6 +179,8 @@
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{tabular*}</BEGIN><END>\end{tabular*}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{longtable}</BEGIN><END>\end{longtable}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabbingMode"><BEGIN>\begin{tabbing}</BEGIN><END>\end{tabbing}</END></SPAN>
+	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align}</BEGIN><END>\end{align}</END></SPAN>
+	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align*}</BEGIN><END>\end{align*}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="PictureMode"><BEGIN>\begin{picture}</BEGIN><END>\end{picture}</END></SPAN>
     <SEQ TYPE="OPERATOR">~</SEQ>
     <SEQ TYPE="KEYWORD1">}</SEQ>
@@ -535,6 +537,12 @@
 
   <RULES IGNORE_CASE="FALSE" SET="MathMode">
     <SEQ TYPE="LABEL">__MathMode__</SEQ>
+	
+	<!-- common mistake -->
+	<SEQ TYPE="INVALID">\begin{align}</SEQ>
+	<SEQ TYPE="INVALID">\end{align}</SEQ>
+	<SEQ TYPE="INVALID">\begin{align*}</SEQ>
+	<SEQ TYPE="INVALID">\end{align*}</SEQ>
 
     <!--  % comments.  -->
     <EOL_SPAN TYPE="COMMENT1">%</EOL_SPAN>
@@ -1060,6 +1068,9 @@
     <SEQ TYPE="OPERATOR">\!</SEQ>
     <SEQ TYPE="OPERATOR">'</SEQ>
     <SEQ TYPE="OPERATOR">\%</SEQ>
+    <SEQ TYPE="OPERATOR">\{</SEQ>
+    <SEQ TYPE="OPERATOR">\}</SEQ>
+    <SEQ TYPE="OPERATOR">\$</SEQ>
 
     <SPAN TYPE="MARKUP" DELEGATE="ArrayMode"><BEGIN>\begin{array}</BEGIN><END>\end{array}</END></SPAN>
 
@@ -1620,6 +1631,8 @@
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{tabular*}</BEGIN><END>\end{tabular*}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{longtable}</BEGIN><END>\end{longtable}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabbingMode"><BEGIN>\begin{tabbing}</BEGIN><END>\end{tabbing}</END></SPAN>
+	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align}</BEGIN><END>\end{align}</END></SPAN>
+	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align*}</BEGIN><END>\end{align*}</END></SPAN>
 	
 	<SPAN_REGEXP HASH_CHAR="\verb" TYPE="KEYWORD2" DELEGATE="VERBATIM">
 		<BEGIN>\\verb([^*])</BEGIN>
@@ -2386,6 +2399,11 @@
     <MARK_FOLLOWING TYPE="KEYWORD4">\</MARK_FOLLOWING>
 
   </RULES>  <!--  TabbingMode  -->
+  
+  <RULES SET="AlignMode" IGNORE_CASE="FALSE">
+  	<IMPORT DELEGATE="MathMode"/>
+	<IMPORT DELEGATE="TabularMode"/>
+  </RULES>
 
   <RULES IGNORE_CASE="FALSE" SET="PictureMode">
     <SEQ TYPE="LABEL">__PictureMode__</SEQ>
