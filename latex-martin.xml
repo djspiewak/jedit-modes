@@ -17,6 +17,7 @@
   	<SPAN TYPE="MARKUP" DELEGATE="MartinTabularMode"><BEGIN>\begin{tabular}</BEGIN><END>\end{tabular}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="MartinTabularMode"><BEGIN>\begin{tabular*}</BEGIN><END>\end{tabular*}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="MartinTabularMode"><BEGIN>\begin{longtable}</BEGIN><END>\end{longtable}</END></SPAN>
+	<SPAN TYPE="MARKUP" DELEGATE="MartinTabularMode"><BEGIN>\begin{supertabular}</BEGIN><END>\end{supertabular}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="MartinTabbingMode"><BEGIN>\begin{tabbing}</BEGIN><END>\end{tabbing}</END></SPAN>
   	
   	<IMPORT DELEGATE="latex::Core"/>

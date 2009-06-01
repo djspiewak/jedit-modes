@@ -178,6 +178,7 @@
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{tabular}</BEGIN><END>\end{tabular}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{tabular*}</BEGIN><END>\end{tabular*}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{longtable}</BEGIN><END>\end{longtable}</END></SPAN>
+	<SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{supertabular}</BEGIN><END>\end{supertabular}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabbingMode"><BEGIN>\begin{tabbing}</BEGIN><END>\end{tabbing}</END></SPAN>
 	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align}</BEGIN><END>\end{align}</END></SPAN>
 	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align*}</BEGIN><END>\end{align*}</END></SPAN>
@@ -1630,6 +1631,7 @@
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{tabular}</BEGIN><END>\end{tabular}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{tabular*}</BEGIN><END>\end{tabular*}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{longtable}</BEGIN><END>\end{longtable}</END></SPAN>
+	<SPAN TYPE="MARKUP" DELEGATE="TabularMode"><BEGIN>\begin{supertabular}</BEGIN><END>\end{supertabular}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="TabbingMode"><BEGIN>\begin{tabbing}</BEGIN><END>\end{tabbing}</END></SPAN>
 	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align}</BEGIN><END>\end{align}</END></SPAN>
 	<SPAN TYPE="MARKUP" DELEGATE="AlignMode"><BEGIN>\begin{align*}</BEGIN><END>\end{align*}</END></SPAN>
