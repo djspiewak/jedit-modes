@@ -73,12 +73,6 @@
 	  <END>]</END>
 	</SPAN>
 
-    <!-- type constraints (griba2010@ya.com) -->
-    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL2"
-      >&lt;:\s*\w+(\.\w+)*(#\w+)?</SEQ_REGEXP>
-    <SEQ_REGEXP HASH_CHAR=">" TYPE="LITERAL2"
-                       >&gt;:\s*\w+(\.\w+)*(#\w+)?</SEQ_REGEXP>
-
     <SEQ TYPE="OPERATOR">(</SEQ>
     <SEQ TYPE="OPERATOR">)</SEQ>
     <SEQ TYPE="OPERATOR">=</SEQ>
@@ -108,10 +102,6 @@
     <SEQ TYPE="NULL">[</SEQ>
     <SEQ TYPE="NULL">?</SEQ>
     <SEQ TYPE="NULL">:</SEQ>
-
-    <!-- after colon type descriptions (griba2010@ya.com) -->
-    <SEQ_REGEXP HASH_CHAR=":" TYPE="LITERAL2"
-                       >:\s*\w+(\.\w+)*(#\w+)?</SEQ_REGEXP>
 
     <!-- Function calls -->
     <!-- <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS> -->
