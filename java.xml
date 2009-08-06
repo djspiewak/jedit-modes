@@ -21,7 +21,7 @@
 		<PROPERTY NAME="electricKeys" VALUE=":" />
 	</PROPS>
 	
-	<RULES>
+	<RULES IGNORE_CASE="FALSE">
 		<IMPORT DELEGATE="core"/>
 	</RULES>
 	
