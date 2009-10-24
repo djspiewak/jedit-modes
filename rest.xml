@@ -7,7 +7,7 @@
 	<PROPS>
 		<PROPERTY NAME="lineComment" VALUE=".."/>
 		<!-- indent after literal blocks and directives -->
-		<PROPERTY NAME="indentNextLines" VALUE=".+::$"/>
+		<PROPERTY NAME="indentNextLines" VALUE=".*::$"/>
 		<PROPERTY NAME="noTabs" VALUE="true" />
 		<PROPERTY NAME="tabSize" VALUE="4" />
 		<PROPERTY NAME="indentSize" VALUE="4" />
@@ -233,7 +233,7 @@
 		<SEQ AT_LINE_START="TRUE" TYPE="LABEL">|</SEQ>
 
 		<!-- comment block -->
-		<SPAN TYPE="COMMENT1" DELEGATE="COMMENT_BLOCK">
+		<SPAN AT_LINE_START="TRUE" TYPE="COMMENT1" DELEGATE="COMMENT_BLOCK">
 			<BEGIN AT_LINE_START="TRUE">..</BEGIN>
 			<END>&#222;</END>
 		</SPAN>
