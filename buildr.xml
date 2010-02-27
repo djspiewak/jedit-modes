@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="indentOpenBrackets" VALUE="{"/>
+		<PROPERTY NAME="indentCloseBrackets" VALUE="}"/>
+		<PROPERTY NAME="unalignedOpenBrackets" VALUE="("/>
+		<PROPERTY NAME="unalignedCloseBrackets" VALUE=")"/>
+		<PROPERTY NAME="lineUpClosingBracket" VALUE="true"/>
+		<PROPERTY NAME="commentStart" VALUE="=begin"/>
+		<PROPERTY NAME="commentEnd" VALUE="=end"/>
+		<PROPERTY NAME="lineComment" VALUE="#"/>
+		<PROPERTY NAME="indentNextLines"
+			  VALUE="[^#]*\s+do(\s*|(\s+\|.+\|\s*))|\s*(if\s+.*|elsif.*|else.*|do(\s*|\s+.*)|case\s+.*|when\s+.*|while\s+.*|for\s+.*|until\s+.*|loop\s+.*|def\s+.*|class\s+.*|module\s+.*|begin.*|unless\s+.*|rescue.*|ensure.*)+"/>
+		<PROPERTY NAME="unindentThisLine" VALUE="^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$"/>
+		<PROPERTY NAME="unindentNextLines" VALUE="^\s*(end\s*|else.*|rescue.*|elsif.*|when.*|ensure.*)$"/>
+		<PROPERTY NAME="indentNextLine"
+			  VALUE="^[^#]*([^$](:|\+|~|\*|-|%|&lt;|&gt;|&amp;|\^|\.|=)|\s(/|\!|\?|\|)|\b(not|and|or)|\\)\s*$"/>
+		<PROPERTY NAME="electricKeys" VALUE="edfn"/>
+	</PROPS>
+	
+	<RULES IGNORE_CASE="FALSE">
+		<KEYWORDS>
+			<!-- Buildr classes -->
+			<KEYWORD4>Project</KEYWORD4>
+			<KEYWORD4>Layout</KEYWORD4>
+			<KEYWORD4>Java</KEYWORD4>
+		
+			<!-- Buildr -->
+			<FUNCTION>local_task</FUNCTION>
+			<FUNCTION>repositories</FUNCTION>
+			<FUNCTION>define</FUNCTION>
+			<FUNCTION>project</FUNCTION>
+			<FUNCTION>compile</FUNCTION>
+			<FUNCTION>test</FUNCTION>
+			<FUNCTION>package</FUNCTION>
+			<FUNCTION>doc</FUNCTION>
+			<FUNCTION>_</FUNCTION>
+			
+			<!-- Rake -->
+			<FUNCTION>info</FUNCTION>
+			<FUNCTION>trace</FUNCTION>
+			<FUNCTION>file</FUNCTION>
+			<FUNCTION>task</FUNCTION>
+		</KEYWORDS>
+		
+		<IMPORT DELEGATE="ruby::MAIN"/>
+	</RULES>
+</MODE>
