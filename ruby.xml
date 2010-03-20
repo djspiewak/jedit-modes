@@ -19,6 +19,9 @@
 		<PROPERTY NAME="commentStart" VALUE="=begin"/>
 		<PROPERTY NAME="commentEnd" VALUE="=end"/>
 		<PROPERTY NAME="lineComment" VALUE="#"/>
+		<PROPERTY NAME="noTabs" VALUE="true" />
+		<PROPERTY NAME="tabSize" VALUE="2" />
+		<PROPERTY NAME="indentSize" VALUE="2" />
 		<PROPERTY NAME="indentNextLines"
 			  VALUE="[^#]*\s+do(\s*|(\s+\|.+\|\s*))|\s*(if\s+.*|elsif.*|else.*|do(\s*|\s+.*)|case\s+.*|when\s+.*|while\s+.*|for\s+.*|until\s+.*|loop\s+.*|def\s+.*|class\s+.*|module\s+.*|begin.*|unless\s+.*|rescue.*|ensure.*)+"/>
 		<PROPERTY NAME="unindentThisLine" VALUE="^\s*(else.*|end\s*|elsif.*|rescue.*|when.*|ensure.*)$"/>
