@@ -38,7 +38,10 @@
 			<FUNCTION>compile</FUNCTION>
 			<FUNCTION>test</FUNCTION>
 			<FUNCTION>package</FUNCTION>
+			<FUNCTION>artifact</FUNCTION>
+			<FUNCTION>transitive</FUNCTION>
 			<FUNCTION>doc</FUNCTION>
+			<FUNCTION>shell</FUNCTION>
 			<FUNCTION>_</FUNCTION>
 			
 			<!-- Rake -->
