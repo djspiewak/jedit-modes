@@ -37,6 +37,7 @@
 			<FUNCTION>project</FUNCTION>
 			<FUNCTION>compile</FUNCTION>
 			<FUNCTION>test</FUNCTION>
+			<FUNCTION>resources</FUNCTION>
 			<FUNCTION>package</FUNCTION>
 			<FUNCTION>artifact</FUNCTION>
 			<FUNCTION>transitive</FUNCTION>
@@ -49,6 +50,7 @@
 			<FUNCTION>trace</FUNCTION>
 			<FUNCTION>file</FUNCTION>
 			<FUNCTION>task</FUNCTION>
+			<FUNCTION>desc</FUNCTION>
 		</KEYWORDS>
 		
 		<IMPORT DELEGATE="ruby::MAIN"/>
