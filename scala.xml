@@ -292,7 +292,7 @@
     <SEQ TYPE="COMMENT3">&lt; </SEQ>
 
     <!-- HTML tags -->
-    <SPAN TYPE="MARKUP" DELEGATE="xml::TAGS">
+    <SPAN TYPE="MARKUP" DELEGATE="xml::TAGS" NO_LINE_BREAK="TRUE">
       <BEGIN>&lt;</BEGIN>
       <END>&gt;</END>
     </SPAN>
