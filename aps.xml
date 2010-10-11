@@ -10,9 +10,9 @@
 		<PROPERTY NAME="indentSize" VALUE="2" />
 		
 		<!-- auto-indent -->
-		<PROPERTY NAME="indentNextLine" VALUE="^.*(begin)\s*$"/>
+		<PROPERTY NAME="indentNextLines" VALUE="^.*(begin|then)\s*$"/>
 		<PROPERTY NAME="unindentThisLine" VALUE="^((.*(end|endif);|\s*else)$)|(\s*elsif.*$)"/>
-		<PROPERTY NAME="unindentNextLines" VALUE="^.*(end|endif);$"/>
+		<PROPERTY NAME="unindentNextLines" VALUE="^.*((end|endif);$|(\s*elsif.*$))"/>
 		<PROPERTY NAME="electricKeys" VALUE=";ef"/>
 	</PROPS>
 
