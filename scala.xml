@@ -232,6 +232,7 @@
       <KEYWORD3>Symbol</KEYWORD3>
       <KEYWORD3>TcpService</KEYWORD3>
       <KEYWORD3>TcpServiceWorker</KEYWORD3>
+      <KEYWORD3>Vector</KEYWORD3>
       <KEYWORD3>WorkerThread</KEYWORD3>
 
       <!-- scala.* predefined objects -->
