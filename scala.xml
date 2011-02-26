@@ -72,6 +72,11 @@
 	  <BEGIN>[</BEGIN>
 	  <END>]</END>
 	</SPAN>
+	
+	<SPAN MATCH_TYPE="NULL">
+		<BEGIN>`</BEGIN>
+		<END>`</END>
+	</SPAN>
 
     <SEQ TYPE="OPERATOR">(</SEQ>
     <SEQ TYPE="OPERATOR">)</SEQ>
