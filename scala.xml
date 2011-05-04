@@ -45,14 +45,19 @@
       <BEGIN>/*</BEGIN>
       <END>*/</END>
     </SPAN>
-
-    <!-- start of XML comment (griba2010@ya.com) -->  
-    <SEQ_REGEXP HASH_CHAR="&lt;" AT_WHITESPACE_END="TRUE" TYPE="COMMENT2" 
-                        DELEGATE="XML_COMMENT">&lt;!--</SEQ_REGEXP>
-
-    <!-- start of xml tag (griba2010@ya.com) -->  
-    <SEQ_REGEXP HASH_CHAR="&lt;" AT_WHITESPACE_END="TRUE" TYPE="LITERAL3" 
-                        DELEGATE="XML_TAG">&lt;\/?\w*</SEQ_REGEXP>
+    
+    <!-- XML literals; keep this in sync with the XML_LITERAL rule set! -->
+  	<SPAN TYPE="COMMENT2">
+  		<BEGIN>&lt;!--</BEGIN>
+  		<END>--&gt;</END>
+  	</SPAN>
+    
+    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([^/&gt;]+)/&gt;</SEQ_REGEXP> 
+    
+    <SPAN_REGEXP DELEGATE="XML_LITERAL" HASH_CHAR="&lt;" MATCH_TYPE="LITERAL3" TYPE="NULL">
+    	<BEGIN>&lt;([^\s/&gt;]+)[^/&gt;]*&gt;</BEGIN>
+    	<END>&lt;/$1&gt;</END>
+    </SPAN_REGEXP>
 	
     <!-- string and character literals -->
     <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="FALSE">
@@ -327,68 +332,33 @@
   </RULES>
 
   <RULES SET="SCALADOC_PRE" DEFAULT="COMMENT3" />
-
-  <!-- inside xml tag default type label -->
-  <!-- for attribute names (griba2010@ya.com) -->
-  <RULES SET="XML_TAG" DEFAULT="LABEL" IGNORE_CASE="TRUE">
-    <!-- string and character literals -->
-    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
-      <BEGIN>"</BEGIN>
-      <END>"</END>
-    </SPAN>
-
-    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
-      <BEGIN>'</BEGIN>
-      <END>'</END>
-    </SPAN>
-
-    <!-- scala attribute value -->
+  
+  <!-- TODO find a way to highlight attribute names as LABEL, attribute values as LITERAL1 -->
+  <RULES SET="XML_LITERAL" DEFAULT="COMMENT4">
+  	<SPAN TYPE="COMMENT2">
+  		<BEGIN>&lt;!--</BEGIN>
+  		<END>--&gt;</END>
+  	</SPAN>
+  	
     <SPAN DELEGATE="MAIN">
       <BEGIN>{</BEGIN>
       <END>}</END>
     </SPAN>
-
-    <!-- if ">\n" goto main rule set -->
-    <SEQ_REGEXP HASH_CHAR="&gt;" DELEGATE="MAIN" TYPE="LITERAL3"
-                        >&gt;$</SEQ_REGEXP>
-
-    <!-- if ">;" goto main rule set -->
-    <SEQ_REGEXP HASH_CHAR="&gt;" DELEGATE="MAIN" TYPE="LITERAL3"
-                        >&gt;\s*;</SEQ_REGEXP>
-
-    <!-- if ">)" goto main rule set -->
-    <SEQ_REGEXP HASH_CHAR="&gt;" DELEGATE="MAIN" TYPE="LITERAL3"
-                        >&gt;\s*\)</SEQ_REGEXP>
-
-    <!-- if ">" goto xml_text rule set -->
-    <SEQ DELEGATE="XML_TEXT" TYPE="LITERAL3">&gt;</SEQ>
-  </RULES>
-
-  <RULES SET="XML_TEXT" DEFAULT="COMMENT4">
-    <!-- scala expression -->
-    <SPAN DELEGATE="MAIN">
-      <BEGIN>{</BEGIN>
-      <END>}</END>
+    
+    <SPAN TYPE="LABEL" NO_WORD_BREAK="TRUE">
+    	<BEGIN>&amp;</BEGIN>
+    	<END>;</END>
     </SPAN>
-
-    <SEQ_REGEXP HASH_CHAR="&lt;" DELEGATE="XML_COMMENT" TYPE="COMMENT2"
-                        >&lt;!--</SEQ_REGEXP>
-    <!-- if "<" goto xml_tag rule set -->
-    <SEQ_REGEXP HASH_CHAR="&lt;" DELEGATE="XML_TAG" TYPE="LITERAL3"
-                        >&lt;\/?\w*</SEQ_REGEXP>
-  </RULES>
-
-  <RULES SET="XML_COMMENT" DEFAULT="COMMENT2">
-    <!-- if end_of_comment with "\n" goto main rule set -->
-    <SEQ_REGEXP HASH_CHAR="-" DELEGATE="MAIN" TYPE="COMMENT2"
-                        >--&gt;$</SEQ_REGEXP>
-
-    <!-- if end_of_comment with ";" goto main rule set -->
-    <SEQ_REGEXP HASH_CHAR="-" DELEGATE="MAIN" TYPE="COMMENT2"
-                        >--&gt;\s*;</SEQ_REGEXP>
-
-    <!-- if end_of_comment goto xml_text rule set -->
-    <SEQ DELEGATE="XML_TEXT" TYPE="COMMENT2">--&gt;</SEQ>
+  
+    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([^/&gt;]+)/&gt;</SEQ_REGEXP> 
+    
+    <!-- recursive match rule -->
+    <SPAN_REGEXP DELEGATE="XML_LITERAL" HASH_CHAR="&lt;" MATCH_TYPE="LITERAL3">
+    	<BEGIN>&lt;([^\s/&gt;]+)[^/&gt;]*&gt;</BEGIN>
+    	<END>&lt;/$1&gt;</END>
+    </SPAN_REGEXP>
+    
+    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="INVALID">&lt;/([^/&gt;]+)&gt;</SEQ_REGEXP>		<!-- unmatched closing tags -->
   </RULES>
 </MODE>
 
