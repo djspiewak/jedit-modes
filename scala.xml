@@ -339,10 +339,10 @@
   		<END>]]&gt;</END>
   	</SPAN>
     
-    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([^/&gt;]+)/&gt;</SEQ_REGEXP> 
+    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([\d\w_\-:.]+)(\s+[\d\w_\-:.]+=('[^']*'|"[^"]*"))*\s*/\s*&gt;</SEQ_REGEXP> 
     
     <SPAN_REGEXP DELEGATE="XML_LITERAL" HASH_CHAR="&lt;" MATCH_TYPE="LITERAL3" TYPE="NULL">
-    	<BEGIN>&lt;([^\s/&gt;]+)[^/&gt;]*&gt;</BEGIN>
+    	<BEGIN>&lt;([\d\w_\-:.]+)(\s+[\d\w_\-:.]+=('[^']*'|"[^"]*"))*\s*&gt;</BEGIN>
     	<END>&lt;/$1&gt;</END>
     </SPAN_REGEXP>
   </RULES>
@@ -361,7 +361,7 @@
     	<END>;</END>
     </SPAN>
     
-    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="INVALID">&lt;/([^/&gt;]+)&gt;</SEQ_REGEXP>		<!-- unmatched closing tags -->
+    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="INVALID">&lt;/[\d\w_\-:.]+&gt;</SEQ_REGEXP>		<!-- unmatched closing tags -->
   </RULES>
 </MODE>
 
