@@ -51,6 +51,11 @@
   		<BEGIN>&lt;!--</BEGIN>
   		<END>--&gt;</END>
   	</SPAN>
+  	
+  	<SPAN MATCH_TYPE="LITERAL3" TYPE="COMMENT4">
+  		<BEGIN>&lt;![CDATA[</BEGIN>
+  		<END>]]&gt;</END>
+  	</SPAN>
     
     <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([^/&gt;]+)/&gt;</SEQ_REGEXP> 
     
@@ -344,6 +349,11 @@
       <BEGIN>{</BEGIN>
       <END>}</END>
     </SPAN>
+  	
+  	<SPAN MATCH_TYPE="LITERAL3" TYPE="COMMENT4">
+  		<BEGIN>&lt;![CDATA[</BEGIN>
+  		<END>]]&gt;</END>
+  	</SPAN>
     
     <SPAN TYPE="LABEL" NO_WORD_BREAK="TRUE">
     	<BEGIN>&amp;</BEGIN>
