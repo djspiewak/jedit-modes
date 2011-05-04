@@ -47,22 +47,7 @@
     </SPAN>
     
     <!-- XML literals; keep this in sync with the XML_LITERAL rule set! -->
-  	<SPAN TYPE="COMMENT2">
-  		<BEGIN>&lt;!--</BEGIN>
-  		<END>--&gt;</END>
-  	</SPAN>
-  	
-  	<SPAN MATCH_TYPE="LITERAL3" TYPE="COMMENT4">
-  		<BEGIN>&lt;![CDATA[</BEGIN>
-  		<END>]]&gt;</END>
-  	</SPAN>
-    
-    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([^/&gt;]+)/&gt;</SEQ_REGEXP> 
-    
-    <SPAN_REGEXP DELEGATE="XML_LITERAL" HASH_CHAR="&lt;" MATCH_TYPE="LITERAL3" TYPE="NULL">
-    	<BEGIN>&lt;([^\s/&gt;]+)[^/&gt;]*&gt;</BEGIN>
-    	<END>&lt;/$1&gt;</END>
-    </SPAN_REGEXP>
+  	<IMPORT DELEGATE="XML_SHARED"/>
 	
     <!-- string and character literals -->
     <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="FALSE">
@@ -338,35 +323,43 @@
 
   <RULES SET="SCALADOC_PRE" DEFAULT="COMMENT3" />
   
-  <!-- TODO find a way to highlight attribute names as LABEL, attribute values as LITERAL1 -->
-  <RULES SET="XML_LITERAL" DEFAULT="COMMENT4">
+  <RULES SET="XML_SHARED">
   	<SPAN TYPE="COMMENT2">
   		<BEGIN>&lt;!--</BEGIN>
   		<END>--&gt;</END>
   	</SPAN>
   	
-    <SPAN DELEGATE="MAIN">
-      <BEGIN>{</BEGIN>
-      <END>}</END>
-    </SPAN>
+  	<SPAN TYPE="LITERAL3">
+  		<BEGIN>&lt;?</BEGIN>
+  		<END>?&gt;</END>
+  	</SPAN>
   	
   	<SPAN MATCH_TYPE="LITERAL3" TYPE="COMMENT4">
   		<BEGIN>&lt;![CDATA[</BEGIN>
   		<END>]]&gt;</END>
   	</SPAN>
     
+    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([^/&gt;]+)/&gt;</SEQ_REGEXP> 
+    
+    <SPAN_REGEXP DELEGATE="XML_LITERAL" HASH_CHAR="&lt;" MATCH_TYPE="LITERAL3" TYPE="NULL">
+    	<BEGIN>&lt;([^\s/&gt;]+)[^/&gt;]*&gt;</BEGIN>
+    	<END>&lt;/$1&gt;</END>
+    </SPAN_REGEXP>
+  </RULES>
+  
+  <!-- TODO find a way to highlight attribute names as LABEL, attribute values as LITERAL1 -->
+  <RULES SET="XML_LITERAL" DEFAULT="COMMENT4">
+  	<IMPORT DELEGATE="XML_SHARED"/>
+  
+    <SPAN DELEGATE="MAIN">
+      <BEGIN>{</BEGIN>
+      <END>}</END>
+    </SPAN>
+    
     <SPAN TYPE="LABEL" NO_WORD_BREAK="TRUE">
     	<BEGIN>&amp;</BEGIN>
     	<END>;</END>
     </SPAN>
-  
-    <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="LITERAL3">&lt;([^/&gt;]+)/&gt;</SEQ_REGEXP> 
-    
-    <!-- recursive match rule -->
-    <SPAN_REGEXP DELEGATE="XML_LITERAL" HASH_CHAR="&lt;" MATCH_TYPE="LITERAL3">
-    	<BEGIN>&lt;([^\s/&gt;]+)[^/&gt;]*&gt;</BEGIN>
-    	<END>&lt;/$1&gt;</END>
-    </SPAN_REGEXP>
     
     <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="INVALID">&lt;/([^/&gt;]+)&gt;</SEQ_REGEXP>		<!-- unmatched closing tags -->
   </RULES>
