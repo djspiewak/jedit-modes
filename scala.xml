@@ -145,23 +145,14 @@
 
       <!-- scala.* primitive types -->
       <KEYWORD2>Boolean</KEYWORD2>
-      <KEYWORD2>boolean</KEYWORD2>
       <KEYWORD2>Byte</KEYWORD2>
-      <KEYWORD2>byte</KEYWORD2>
       <KEYWORD2>Char</KEYWORD2>
-      <KEYWORD2>char</KEYWORD2>
       <KEYWORD2>Double</KEYWORD2>
-      <KEYWORD2>double</KEYWORD2>
       <KEYWORD2>Float</KEYWORD2>
-      <KEYWORD2>float</KEYWORD2>
       <KEYWORD2>Int</KEYWORD2>
-      <KEYWORD2>int</KEYWORD2>
       <KEYWORD2>Long</KEYWORD2>
-      <KEYWORD2>long</KEYWORD2>
       <KEYWORD2>Short</KEYWORD2>
-      <KEYWORD2>short</KEYWORD2>
       <KEYWORD2>Unit</KEYWORD2>
-      <KEYWORD2>unit</KEYWORD2>
 
       <!-- scala.* predefined types -->
       <KEYWORD3>Actor</KEYWORD3>
