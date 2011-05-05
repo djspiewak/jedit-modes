@@ -349,6 +349,12 @@
   
   <!-- TODO find a way to highlight attribute names as LABEL, attribute values as LITERAL1 -->
   <RULES SET="XML_LITERAL" DEFAULT="COMMENT4">
+  	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
+		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
+		<PROPERTY NAME="lineComment" VALUE="" />
+  	</PROPS>
+  
   	<IMPORT DELEGATE="XML_SHARED"/>
   
     <SPAN DELEGATE="MAIN">
