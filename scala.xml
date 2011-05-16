@@ -46,6 +46,11 @@
       <END>*/</END>
     </SPAN>
     
+    <SPAN MATCH_TYPE="NULL" DELEGATE="MAIN">
+    	<BEGIN>{</BEGIN>
+    	<END>}</END>
+    </SPAN>
+    
     <!-- XML literals; keep this in sync with the XML_LITERAL rule set! -->
   	<IMPORT DELEGATE="XML_SHARED"/>
 	
