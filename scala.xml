@@ -261,16 +261,14 @@
       <END>--&gt;</END>
     </SPAN>
 
-    <!-- Javadoc allows this -->
-    <SEQ TYPE="COMMENT3">&lt;&lt;</SEQ>
-    <SEQ TYPE="COMMENT3">&lt;=</SEQ>
-    <SEQ TYPE="COMMENT3">&lt; </SEQ>
-
     <!-- HTML tags -->
-    <SPAN TYPE="MARKUP" DELEGATE="xml::TAGS" NO_LINE_BREAK="TRUE">
-      <BEGIN>&lt;</BEGIN>
+    <SPAN_REGEXP HASH_CHAR="&lt;" TYPE="MARKUP" DELEGATE="xml::TAGS" NO_LINE_BREAK="TRUE">
+      <BEGIN>&lt;/?[\da-zA-Z\-]+</BEGIN>
       <END>&gt;</END>
-    </SPAN>
+    </SPAN_REGEXP>
+
+    <!-- Javadoc allows this -->
+    <SEQ TYPE="COMMENT3">&lt;</SEQ>
 
     <KEYWORDS>
       <LABEL>@author</LABEL>
