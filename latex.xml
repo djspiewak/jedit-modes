@@ -168,6 +168,7 @@
     <SPAN TYPE="MARKUP" DELEGATE="MathMode"><BEGIN>\(</BEGIN><END>\)</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="MathMode"><BEGIN>\[</BEGIN><END>\]</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="MathMode"><BEGIN>\begin{math}</BEGIN><END>\end{math}</END></SPAN>
+    <SPAN TYPE="MARKUP" DELEGATE="MathMode"><BEGIN>\begin{mathpar}</BEGIN><END>\end{mathpar}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="MathMode"><BEGIN>\begin{displaymath}</BEGIN><END>\end{displaymath}</END></SPAN>
     <SPAN TYPE="MARKUP" DELEGATE="MathMode"><BEGIN>\begin{equation}</BEGIN><END>\end{equation}</END></SPAN>
 	<SPAN TYPE="MARKUP" DELEGATE="MathMode"><BEGIN>\begin{equation*}</BEGIN><END>\end{equation*}</END></SPAN>
