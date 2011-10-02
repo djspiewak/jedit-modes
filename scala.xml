@@ -63,7 +63,7 @@
       <BEGIN>"</BEGIN>
       <END>"</END>
     </SPAN>
-	<SEQ_REGEXP HASH_CHAR="'" TYPE="LITERAL1">'([^']|\\.)'</SEQ_REGEXP>
+	<SEQ_REGEXP HASH_CHAR="'" TYPE="LITERAL1">'([^'\\]|\\.)'</SEQ_REGEXP>
 
     <!-- symbol literals -->
     <SEQ_REGEXP HASH_CHAR="'" TYPE="LABEL">'[0-9a-zA-Z&gt;&lt;=+]([0-9a-zA-Z&gt;&lt;=+]|_[0-9a-zA-Z&gt;&lt;=+])*</SEQ_REGEXP>
