@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+  <PROPS>
+	<PROPERTY NAME="indentNextLines" VALUE=".*(:=|::\s+[^\s]+)\s*$"/>
+    <PROPERTY NAME="doubleBracketIndent" VALUE="false" />
+    <PROPERTY NAME="commentStart" VALUE="(-" />
+    <PROPERTY NAME="commentEnd" VALUE="-)" />
+    <PROPERTY NAME="lineComment" VALUE="--" />
+    <PROPERTY NAME="noTabs" VALUE="true" />
+    <PROPERTY NAME="tabSize" VALUE="2" />
+    <PROPERTY NAME="indentSize" VALUE="2" />
+    <PROPERTY NAME="wordBreakChars" VALUE="" />
+  </PROPS>
+  
+  <RULES IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE" DIGIT_RE="\d+(e\d+)?">
+  
+  	<EOL_SPAN TYPE="COMMENT1">--</EOL_SPAN>
+  	<SPAN TYPE="COMMENT2">
+  		<BEGIN>(-</BEGIN>
+  		<END>-)</END>
+  	</SPAN>
+  	
+  	<SPAN TYPE="LITERAL1" ESCAPE="\">
+  		<BEGIN>"</BEGIN>
+  		<END>"</END>
+  	</SPAN>
+  	
+  	<MARK_FOLLOWING TYPE="LITERAL1">/</MARK_FOLLOWING>
+  		
+    <SEQ TYPE="NULL">:=</SEQ>
+    <SEQ TYPE="KEYWORD1">::</SEQ>
+	
+	<MARK_PREVIOUS TYPE="LITERAL4">:</MARK_PREVIOUS>
+	<MARK_FOLLOWING TYPE="LABEL" AT_WORD_START="TRUE">'</MARK_FOLLOWING>
+    
+    <KEYWORDS>
+    	<KEYWORD1>new</KEYWORD1>
+    	<KEYWORD1>where</KEYWORD1>
+    	
+    	<FUNCTION>count</FUNCTION>
+    	<FUNCTION>mean</FUNCTION>
+    	<FUNCTION>median</FUNCTION>
+    	<FUNCTION>mode</FUNCTION>
+    	<FUNCTION>stdDev</FUNCTION>
+    	<FUNCTION>sum</FUNCTION>
+    	
+    	<KEYWORD2>true</KEYWORD2>
+    	<KEYWORD2>false</KEYWORD2>
+    </KEYWORDS>
+  </RULES>
+</MODE>
+
