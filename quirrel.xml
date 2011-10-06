@@ -28,10 +28,11 @@
   		<END>"</END>
   	</SPAN>
   	
-  	<SEQ_REGEXP TYPE="LITERAL1" HASH_CHAR="/" AT_WORD_START="TRUE">(/[a-zA-Z\-0-9]+)+</SEQ_REGEXP>
+  	<SEQ_REGEXP TYPE="LITERAL1" HASH_CHAR="/" AT_WORD_START="TRUE">/(/[a-zA-Z\-0-9]+)+</SEQ_REGEXP>
   	
     <SEQ TYPE="NULL">:=</SEQ>
     <SEQ TYPE="KEYWORD1">::</SEQ>
+    <SEQ TYPE="INVALID">//</SEQ>
     
     <SPAN DELEGATE="OBJECT">
     	<BEGIN>{</BEGIN>
