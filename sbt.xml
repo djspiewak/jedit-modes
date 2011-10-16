@@ -26,6 +26,7 @@
     <SEQ TYPE="FUNCTION">:=</SEQ>
     
     <SEQ TYPE="FUNCTION">&lt;&lt;=</SEQ>
+    <SEQ TYPE="FUNCTION">&lt;++=</SEQ>
     <SEQ TYPE="FUNCTION">&lt;+=</SEQ>
     
   	<SEQ TYPE="FUNCTION">++=</SEQ>
@@ -44,8 +45,12 @@
   		<KEYWORD3>clean</KEYWORD3>
   		<KEYWORD3>compile</KEYWORD3>
   		<KEYWORD3>Compile</KEYWORD3>
+  		<KEYWORD3>console</KEYWORD3>
+  		<KEYWORD3>doc</KEYWORD3>
+  		<KEYWORD3>InputKey</KEYWORD3>
   		<KEYWORD3>packageBin</KEYWORD3>
   		<KEYWORD3>packageDoc</KEYWORD3>
+  		<KEYWORD3>packageSrc</KEYWORD3>
   		<KEYWORD3>run</KEYWORD3>
   		<KEYWORD3>Test</KEYWORD3>
   		<KEYWORD3>ThisBuild</KEYWORD3>
@@ -54,6 +59,7 @@
   		<KEYWORD4>artifactClassifier</KEYWORD4>
   		<KEYWORD4>credentials</KEYWORD4>
   		<KEYWORD4>crossPaths</KEYWORD4>
+  		<KEYWORD4>crossScalaVersions</KEYWORD4>
   		<KEYWORD4>fork</KEYWORD4>
   		<KEYWORD4>initialCommands</KEYWORD4>
   		<KEYWORD4>ivyLoggingLevel</KEYWORD4>
@@ -74,6 +80,7 @@
   		<KEYWORD4>publishTo</KEYWORD4>
   		<KEYWORD4>retrieveManaged</KEYWORD4>
   		<KEYWORD4>scalacOptions</KEYWORD4>
+  		<KEYWORD4>scaladocOptions</KEYWORD4>
   		<KEYWORD4>scalaHome</KEYWORD4>
   		<KEYWORD4>scalaSource</KEYWORD4>
   		<KEYWORD4>scalaVersion</KEYWORD4>
@@ -84,6 +91,7 @@
   		<KEYWORD4>traceLevel</KEYWORD4>
   		<KEYWORD4>resolvers</KEYWORD4>
   		<KEYWORD4>unmanagedJars</KEYWORD4>
+  		<KEYWORD4>unmanagedSourceDirectories</KEYWORD4>
   		<KEYWORD4>version</KEYWORD4>
   		<KEYWORD4>watchSources</KEYWORD4>
   	</KEYWORDS>
