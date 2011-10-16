@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+  <PROPS>
+    <PROPERTY NAME="indentOpenBrackets" VALUE="{" />
+    <PROPERTY NAME="indentCloseBrackets" VALUE="}" />
+    <PROPERTY NAME="lineUpClosingBracket" VALUE="true" />
+	<PROPERTY NAME="indentNextLine"
+	  VALUE="(.*((if|while|else\s+if|for)\s*\().*\)|\s*else|\s*case.*=>|.*(def|val|var|type).*=)\s*$"/>
+    <!-- set this to 'true' if you want to use GNU coding style -->
+    <PROPERTY NAME="doubleBracketIndent" VALUE="false" />
+    <PROPERTY NAME="commentStart" VALUE="/*" />
+    <PROPERTY NAME="commentEnd" VALUE="*/" />
+    <PROPERTY NAME="lineComment" VALUE="//" />
+    <PROPERTY NAME="noTabs" VALUE="true" />
+    <PROPERTY NAME="tabSize" VALUE="2" />
+    <PROPERTY NAME="indentSize" VALUE="2" />
+    <PROPERTY NAME="wordBreakChars" VALUE=",+-=&lt;&gt;/?^&amp;*" />
+  </PROPS>
+  
+  <RULES IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE"
+  		DIGIT_RE="(0[lL]?|[1-9]\d{0,9}(\d{0,9}[lL])?|0[xX]\p{XDigit}{1,8}(\p{XDigit}{0,8}[lL])?|0[0-7]{1,11}([0-7]{0,11}[lL])?|([0-9]+\.[0-9]*|\.[0-9]+)([eE][+-]?[0-9]+)?[fFdD]?|[0-9]+([eE][+-]?[0-9]+[fFdD]?|([eE][+-]?[0-9]+)?[fFdD]))">
+  		
+    <SEQ TYPE="FUNCTION">:=</SEQ>
+    
+    <SEQ TYPE="FUNCTION">&lt;&lt;=</SEQ>
+    <SEQ TYPE="FUNCTION">&lt;+=</SEQ>
+    
+  	<SEQ TYPE="FUNCTION">++=</SEQ>
+  	<SEQ TYPE="FUNCTION">+=</SEQ>	
+  	
+  	<SPAN DELEGATE="scala::MAIN">
+  		<BEGIN>{</BEGIN>
+  		<END>}</END>
+  	</SPAN>
+  	
+  	<IMPORT DELEGATE="scala::MAIN"/>
+  	
+  	<KEYWORDS>
+  		<KEYWORD1>in</KEYWORD1>
+  		
+  		<KEYWORD3>clean</KEYWORD3>
+  		<KEYWORD3>compile</KEYWORD3>
+  		<KEYWORD3>Compile</KEYWORD3>
+  		<KEYWORD3>packageBin</KEYWORD3>
+  		<KEYWORD3>packageDoc</KEYWORD3>
+  		<KEYWORD3>run</KEYWORD3>
+  		<KEYWORD3>Test</KEYWORD3>
+  		<KEYWORD3>ThisBuild</KEYWORD3>
+  	
+  		<KEYWORD4>aggregate</KEYWORD4>
+  		<KEYWORD4>artifactClassifier</KEYWORD4>
+  		<KEYWORD4>credentials</KEYWORD4>
+  		<KEYWORD4>crossPaths</KEYWORD4>
+  		<KEYWORD4>fork</KEYWORD4>
+  		<KEYWORD4>initialCommands</KEYWORD4>
+  		<KEYWORD4>ivyLoggingLevel</KEYWORD4>
+  		<KEYWORD4>javacOptions</KEYWORD4>
+  		<KEYWORD4>javaHome</KEYWORD4>
+  		<KEYWORD4>javaOptions</KEYWORD4>
+  		<KEYWORD4>libraryDependencies</KEYWORD4>
+  		<KEYWORD4>logLevel</KEYWORD4>
+  		<KEYWORD4>mainClass</KEYWORD4>
+  		<KEYWORD4>maxErrors</KEYWORD4>
+  		<KEYWORD4>name</KEYWORD4>
+  		<KEYWORD4>offline</KEYWORD4>
+  		<KEYWORD4>organization</KEYWORD4>
+  		<KEYWORD4>parallelExecution</KEYWORD4>
+  		<KEYWORD4>persistLogLevel</KEYWORD4>
+  		<KEYWORD4>pollInterval</KEYWORD4>
+  		<KEYWORD4>publishArtifact</KEYWORD4>
+  		<KEYWORD4>publishTo</KEYWORD4>
+  		<KEYWORD4>retrieveManaged</KEYWORD4>
+  		<KEYWORD4>scalacOptions</KEYWORD4>
+  		<KEYWORD4>scalaHome</KEYWORD4>
+  		<KEYWORD4>scalaSource</KEYWORD4>
+  		<KEYWORD4>scalaVersion</KEYWORD4>
+  		<KEYWORD4>shellPrompt</KEYWORD4>
+  		<KEYWORD4>showSuccess</KEYWORD4>
+  		<KEYWORD4>showTiming</KEYWORD4>
+  		<KEYWORD4>timingFormat</KEYWORD4>
+  		<KEYWORD4>traceLevel</KEYWORD4>
+  		<KEYWORD4>resolvers</KEYWORD4>
+  		<KEYWORD4>unmanagedJars</KEYWORD4>
+  		<KEYWORD4>version</KEYWORD4>
+  		<KEYWORD4>watchSources</KEYWORD4>
+  	</KEYWORDS>
+  </RULES>
+</MODE>
