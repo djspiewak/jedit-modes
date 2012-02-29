@@ -47,7 +47,7 @@
     	<KEYWORD1>with</KEYWORD1>
     	
     	<FUNCTION>count</FUNCTION>
-    	<FUNCTION>dataset</FUNCTION>
+    	<FUNCTION>load</FUNCTION>
     	<FUNCTION>max</FUNCTION>
     	<FUNCTION>mean</FUNCTION>
     	<FUNCTION>median</FUNCTION>
