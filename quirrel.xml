@@ -4,7 +4,7 @@
 
 <MODE>
   <PROPS>
-	<PROPERTY NAME="indentNextLines" VALUE=".*(:=|::\s+[^\s]+)\s*$"/>
+	<PROPERTY NAME="indentNextLines" VALUE=".*(:=|~\s+[^\s]+)\s*$"/>
     <PROPERTY NAME="doubleBracketIndent" VALUE="false" />
     <PROPERTY NAME="commentStart" VALUE="(-" />
     <PROPERTY NAME="commentEnd" VALUE="-)" />
@@ -31,7 +31,7 @@
   	<SEQ_REGEXP TYPE="LITERAL1" HASH_CHAR="/" AT_WORD_START="TRUE">/(/[a-zA-Z\-0-9]+)+</SEQ_REGEXP>
   	
     <SEQ TYPE="NULL">:=</SEQ>
-    <SEQ TYPE="KEYWORD1">::</SEQ>
+    <SEQ TYPE="KEYWORD1">~</SEQ>
     <SEQ TYPE="INVALID">//</SEQ>
     
     <SPAN DELEGATE="OBJECT">
@@ -42,7 +42,9 @@
 	<MARK_FOLLOWING TYPE="LABEL" AT_WORD_START="TRUE">'</MARK_FOLLOWING>
     
     <KEYWORDS>
+    	<KEYWORD1>difference</KEYWORD1>
     	<KEYWORD1>else</KEYWORD1>
+    	<KEYWORD1>forall</KEYWORD1>
     	<KEYWORD1>if</KEYWORD1>
     	<KEYWORD1>import</KEYWORD1>
     	<KEYWORD1>intersect</KEYWORD1>
@@ -53,7 +55,8 @@
     	<KEYWORD1>with</KEYWORD1>
     	
     	<FUNCTION>count</FUNCTION>
-    	<FUNCTION>gaussian</FUNCTION>
+    	<FUNCTION>distinct</FUNCTION>
+    	<FUNCTION>geometricMean</FUNCTION>
     	<FUNCTION>load</FUNCTION>
     	<FUNCTION>max</FUNCTION>
     	<FUNCTION>mean</FUNCTION>
@@ -62,9 +65,12 @@
     	<FUNCTION>mode</FUNCTION>
     	<FUNCTION>stdDev</FUNCTION>
     	<FUNCTION>sum</FUNCTION>
+    	<FUNCTION>sumSq</FUNCTION>
+    	<FUNCTION>variance</FUNCTION>
     	
     	<KEYWORD2>true</KEYWORD2>
     	<KEYWORD2>false</KEYWORD2>
+    	<KEYWORD2>null</KEYWORD2>
     </KEYWORDS>
   </RULES>
   
