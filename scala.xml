@@ -55,7 +55,7 @@
   	<IMPORT DELEGATE="XML_SHARED"/>
 	
     <!-- string and character literals -->
-    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="FALSE">
+    <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="">
       <BEGIN>"""</BEGIN>
       <END>"""</END>
     </SPAN>
