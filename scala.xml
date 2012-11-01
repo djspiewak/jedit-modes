@@ -41,7 +41,7 @@
     </SPAN>
 
     <!-- Scala comment (Java style) -->
-    <SPAN TYPE="COMMENT1">
+    <SPAN TYPE="COMMENT1" DELEGATE="COMMENT_BLOCK">
       <BEGIN>/*</BEGIN>
       <END>*/</END>
     </SPAN>
@@ -181,6 +181,13 @@
   	<IMPORT DELEGATE="PRIMARY"/>
 	
 	<SEQ TYPE="OPERATOR">@</SEQ>
+  </RULES>
+  
+  <RULES SET="COMMENT_BLOCK" DEFAULT="COMMENT1">
+  	<SPAN TYPE="COMMENT1" DELEGATE="COMMENT_BLOCK">
+      <BEGIN>/*</BEGIN>
+      <END>*/</END>
+  	</SPAN>
   </RULES>
 
   <RULES SET="SCALADOC" DEFAULT="COMMENT3" IGNORE_CASE="TRUE">
