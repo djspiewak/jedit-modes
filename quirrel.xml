@@ -4,7 +4,7 @@
 
 <MODE>
   <PROPS>
-	<PROPERTY NAME="indentNextLines" VALUE=".*(:=|~\s+[^\s]+)\s*$"/>
+	<PROPERTY NAME="indentNextLines" VALUE=".*((:=|~\s+[^\s]+)\s*|solve.*)$"/>
     <PROPERTY NAME="doubleBracketIndent" VALUE="false" />
     <PROPERTY NAME="commentStart" VALUE="(-" />
     <PROPERTY NAME="commentEnd" VALUE="-)" />
