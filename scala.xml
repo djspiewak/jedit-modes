@@ -229,7 +229,9 @@
 	</SPAN>
   </RULES>
   
-  <RULES SET="PATTERN" DEFAULT="NULL" IGNORE_CASE="FALSE">
+  <RULES SET="PATTERN" DEFAULT="NULL" IGNORE_CASE="FALSE"
+	  DIGIT_RE="(0[lL]?|[1-9]\d{0,9}(\d{0,9}[lL])?|0[xX]\p{XDigit}{1,8}(\p{XDigit}{0,8}[lL])?|0[0-7]{1,11}([0-7]{0,11}[lL])?|([0-9]+\.[0-9]*|\.[0-9]+)([eE][+-]?[0-9]+)?[fFdD]?|[0-9]+([eE][+-]?[0-9]+[fFdD]?|([eE][+-]?[0-9]+)?[fFdD]))">
+	  
   	<IMPORT DELEGATE="PRIMARY"/>
 	
 	<SEQ TYPE="OPERATOR">@</SEQ>
