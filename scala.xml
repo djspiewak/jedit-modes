@@ -335,10 +335,10 @@
   		<END>--&gt;</END>
   	</SPAN>
   	
-  	<SPAN TYPE="LITERAL3">
-  		<BEGIN>&lt;?</BEGIN>
+  	<SPAN_REGEXP TYPE="LITERAL3" HASH_CHARS="&lt;">
+  		<BEGIN>&lt;\?[^\s]</BEGIN>
   		<END>?&gt;</END>
-  	</SPAN>
+  	</SPAN_REGEXP>
   	
   	<SPAN MATCH_TYPE="LITERAL3" TYPE="COMMENT4">
   		<BEGIN>&lt;![CDATA[</BEGIN>
