@@ -53,6 +53,16 @@
     
     <!-- XML literals; keep this in sync with the XML_LITERAL rule set! -->
   	<IMPORT DELEGATE="XML_SHARED"/>
+  	
+  	<!-- interpolated stuff -->
+    <SPAN_REGEXP DELEGATE="STRING" MATCH_TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="">
+      <BEGIN>[0-9a-zA-Z&gt;&lt;=+]([0-9a-zA-Z&gt;&lt;=+]|_[0-9a-zA-Z&gt;&lt;=+])*"""</BEGIN>
+      <END>"""</END>
+    </SPAN_REGEXP>
+    <SPAN_REGEXP DELEGATE="STRING" MATCH_TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="\">
+      <BEGIN>[0-9a-zA-Z&gt;&lt;=+]([0-9a-zA-Z&gt;&lt;=+]|_[0-9a-zA-Z&gt;&lt;=+])*"</BEGIN>
+      <END>"</END>
+    </SPAN_REGEXP>
 	
     <!-- string and character literals -->
     <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE" ESCAPE="">
@@ -391,6 +401,17 @@
     </SPAN>
     
     <SEQ_REGEXP HASH_CHAR="&lt;" TYPE="INVALID">&lt;/[\d\w_\-:.]+&gt;</SEQ_REGEXP>		<!-- unmatched closing tags -->
+  </RULES>
+  
+  <RULES SET="STRING" DEFAULT="LITERAL1">
+  	<SEQ TYPE="LITERAL1">$$</SEQ>
+  
+  	<SPAN DELEGATE="MAIN">
+  		<BEGIN>${</BEGIN>
+  		<END>}</END>
+  	</SPAN>
+  
+  	<MARK_FOLLOWING TYPE="NULL" MATCH_TYPE="NULL">$</MARK_FOLLOWING>
   </RULES>
 </MODE>
 
