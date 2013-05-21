@@ -255,6 +255,9 @@
 	  <LITERAL2>super</LITERAL2>
 	  <LITERAL2>this</LITERAL2>
 	  <LITERAL2>true</LITERAL2>
+	  
+	  <!-- reserved -->
+	  <INVALID>then</INVALID>
     </KEYWORDS>
   </RULES>
   
