@@ -100,7 +100,7 @@
     <!-- Function calls -->
     <!-- <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS> -->
     
-    <EOL_SPAN MATCH_TYPE="KEYWORD1" DELEGATE="TYPE">import</EOL_SPAN>
+    <EOL_SPAN MATCH_TYPE="KEYWORD1" DELEGATE="TYPE">import </EOL_SPAN>
 	
 	<!-- Function declarations (overloaded for different spacing styles)-->
 	<MARK_FOLLOWING TYPE="FUNCTION" MATCH_TYPE="KEYWORD1" AT_WORD_START="TRUE">def       </MARK_FOLLOWING>
