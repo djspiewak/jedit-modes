@@ -15,7 +15,7 @@
     <PROPERTY NAME="commentEnd" VALUE="*/" />
     <PROPERTY NAME="lineComment" VALUE="//" />
     <PROPERTY NAME="noTabs" VALUE="true" />
-    <PROPERTY NAME="tabSize" VALUE="2" />
+    <PROPERTY NAME="tabSize" VALUE="4" />
     <PROPERTY NAME="indentSize" VALUE="2" />
     <PROPERTY NAME="wordBreakChars" VALUE=",+-=&lt;&gt;/?^&amp;*" />
   </PROPS>

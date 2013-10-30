@@ -19,6 +19,10 @@
 		<PROPERTY NAME="unindentThisLine"
 			VALUE="^.*(default:\s*|case.*:.*)$" />
 		<PROPERTY NAME="electricKeys" VALUE=":" />
+		
+		<PROPERTY NAME="noTabs" VALUE="true" />
+		<PROPERTY NAME="tabSize" VALUE="4" />
+		<PROPERTY NAME="indentSize" VALUE="2" />
 	</PROPS>
 	
 	<RULES IGNORE_CASE="FALSE">
