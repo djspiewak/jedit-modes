@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="lineComment" VALUE="#" />
+		<PROPERTY NAME="noTabs" VALUE="false" />
+		<PROPERTY NAME="tabSize" VALUE="4" />
+		<PROPERTY NAME="indentSize" VALUE="4" />
+		<PROPERTY NAME="indentNextLines" VALUE="^\s*\[[^\]]+\]\s*$"/>
+		<PROPERTY NAME="unindentThisLine" VALUE="^\s*\[[^\]]+\]\s*$"/>
+		<PROPERTY NAME="unindentNextLines" VALUE="^\s*\[[^\]]+\]\s*$"/>
+		<PROPERTY NAME="electricKeys" VALUE="[]"/>
+	</PROPS>
+
+	<RULES IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE" DEFAULT="KEYWORD1">
+		<EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+
+		<SEQ TYPE="INVALID">"</SEQ>
+		<SEQ TYPE="INVALID">'</SEQ>
+		
+		<SPAN TYPE="KEYWORD3">
+		  <BEGIN>[</BEGIN>
+		  <END>]</END>
+		</SPAN>
+		
+		<EOL_SPAN TYPE="NULL" DELEGATE="PROP_VALUE">=</EOL_SPAN>
+	</RULES>
+	
+	<RULES SET="PROP_VALUE" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<SPAN DELEGATE="shellscript::MAIN">
+		  <BEGIN>!"</BEGIN>
+		  <END>"</END>
+		</SPAN>
+		
+		<EOL_SPAN DELEGATE="shellscript::MAIN">!</EOL_SPAN>
+	</RULES>
+</MODE>
+
