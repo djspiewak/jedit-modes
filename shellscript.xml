@@ -8,9 +8,9 @@
 		<PROPERTY NAME="indentOpenBrackets" VALUE="{" />
 		<PROPERTY NAME="indentCloseBrackets" VALUE="}" />
 		
-		<PROPERTY NAME="noTabs" VALUE="false"/>
-		<PROPERTY NAME="indentSize" VALUE="4" />
-		<PROPERTY NAME="tabSize" VALUE="4"/>
+		<PROPERTY NAME="noTabs" VALUE="true"/>
+		<PROPERTY NAME="indentSize" VALUE="2" />
+		<PROPERTY NAME="tabSize" VALUE="2"/>
 	</PROPS>
 	<RULES ESCAPE="\" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
 		<!-- Comments -->
