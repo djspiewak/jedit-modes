@@ -26,8 +26,8 @@
 <MODE>
   <PROPS>
 	<PROPERTY NAME="tabSize" VALUE="4" />
-	<PROPERTY NAME="indentSize" VALUE="4" />
-	<PROPERTY NAME="noTabs" VALUE="false" />
+	<PROPERTY NAME="indentSize" VALUE="2" />
+	<PROPERTY NAME="noTabs" VALUE="true" />
 	<PROPERTY NAME="wrap" VALUE="soft" />
 	<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
 	<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
@@ -98,10 +98,6 @@
 	<SEQ TYPE="NULL">\][</SEQ>
 	<SEQ_REGEXP TYPE="NULL" HASH_CHAR="\">\\[\Q*_\`[](){}#+.!-\E]</SEQ_REGEXP>
 		<!-- GitHub-flavored code blocks -->
-		<SPAN TYPE="LITERAL2" AT_LINE_START="TRUE" DELEGATE="ruby::MAIN">
-		  <BEGIN>``` ruby</BEGIN>
-		  <END>```</END>
-		</SPAN>
 		<SPAN TYPE="LITERAL2" AT_LINE_START="TRUE">
 		  <BEGIN>```</BEGIN>
 		  <END>```</END>
@@ -111,8 +107,6 @@
 	  <BEGIN>(`{1,2})</BEGIN>
 	  <END>$1</END>
 	</SPAN_REGEXP>
-	<!-- telling difference between code blocks and list paragraphs is impossible until regexp cross line boundaries -->
-	<EOL_SPAN_REGEXP TYPE="LITERAL2" AT_LINE_START="TRUE" HASH_CHARS=" &#09;">( {4,}|\t+)\S</EOL_SPAN_REGEXP>
 	<!-- <EOL_SPAN_REGEXP TYPE="LITERAL2" AT_LINE_START="TRUE" HASH_CHARS=" &#09;">( {4,}|\t+){2,}</EOL_SPAN_REGEXP> -->
 	<!-- headers (setext-style:) -->
 	<EOL_SPAN_REGEXP TYPE="KEYWORD1" AT_LINE_START="TRUE" HASH_CHARS="=-">[=-]+</EOL_SPAN_REGEXP>
