@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- 
+    By Axel Friedrich. No warrenty at all.
+    For TOML version 0.4, https://github.com/toml-lang/toml
+    I checked this with jEdit 5.3pre1
+    
+    Put this into catalog file:
+    <MODE NAME="toml"           FILE="toml.xml"
+                FILE_NAME_GLOB="*.{toml}" />
+    
+    Using configurable fold handler with RegExp, 
+    Start:(?<=^\s{0,299}\[\[?[^\[\],;]{0,299})\]\]?\s* 
+    End:^\s{0,299}\[\[?(?=[^\[\],;]{0,299}\]\]?\s*)
+
+    Debug Regexp: https://www.debuggex.com/
+    
+    Some extracts  from the TOML readme:
+    * Bare keys may only contain letters, numbers, underscores, and dashes (
+      A-Za-z0-9_- ). 
+    * Quoted keys follow the exact same rules as either basic strings or literal
+      strings and allow you to use a much broader set of key names. Best practice
+      is to use bare keys except when absolutely necessary.
+    * Tables: Dots are prohibited in bare keys because dots are used to signify
+      nested tables. Naming rules for each dot separated part are the same as for
+      keys (see definition of Key/Value Pairs).
+    * Having to use configurable fold handler instead of folding by indent has disadvantage:
+      Strings and Arrays cannot be "consumed" before searching for fold-start and
+      fold-end, hence "[...]" inside a String or Array can trigger folding. 
+    
+    Strings:
+    For convenience, some popular characters have a compact escape sequence.
+    \b         - backspace       (U+0008)
+    \t         - tab             (U+0009)
+    \n         - linefeed        (U+000A)
+    \f         - form feed       (U+000C)
+    \r         - carriage return (U+000D)
+    \"         - quote           (U+0022)
+    \\         - backslash       (U+005C)
+    \uXXXX     - unicode         (U+XXXX)
+    \UXXXXXXXX - unicode         (U+XXXXXXXX)
+    
+    Must be escaped: quotation mark, backslash, and the control characters (U+0000 to U+001F).
+
+    Difficulties:
+    How to distinguish table intros like [ "table2" ] from Arrays like [ "value" ] ?  
+    Here, this is interpreted as table, for example (^ indicates line line
+    start, \n indicates line end):
+    ^  [  a_b1 ]  \n
+    ^  [  1 ]   \n
+    ^  [ "..." ]  \n
+
+    This is interpreted as Array, for example:
+    ^  [  1 ]  ,  \n 
+    ^  [  1 ]  ]  \n 
+    ^  [ "..." ]  ,  \n
+-->
+
+<MODE>
+    <PROPS>
+        <PROPERTY NAME="noTabs" VALUE="true"/>
+        <PROPERTY NAME="wrap" VALUE="soft"/>
+        <PROPERTY NAME="folding" VALUE="custom"/> <!--Using configurable fold handler, see above-->
+        <PROPERTY NAME="tabSize" VALUE="2"/>
+        <PROPERTY NAME="indentSize" VALUE="2"/>
+        <PROPERTY NAME="lineComment" VALUE="#"/>
+
+        <!--<PROPERTY NAME="indentNextLines"    VALUE="\s*\[[^,;]*\].*" />   Couldn't get undindent working-->
+        <!--<PROPERTY NAME="indentNextLines"    VALUE="(?&lt;=^\s{0,299}\[\[?[^\[\],;]{0,299})\]\]?\s*" />  look behind does not work; see: https://sourceforge.net/p/jedit/bugs/3062/ -->       
+
+    </PROPS>
+    
+    <RULES IGNORE_CASE="FALSE"  
+        ESCAPE="\"   
+        HIGHLIGHT_DIGITS="TRUE"  
+        DIGIT_RE="([1-9]([0-9_]*[0-9])?)|([0-9]([0-9_]*[0-9])?[Ee]([0-9]([0-9_]*[0-9])?)?)" > 
+
+        <!--TODO: allow TAB = &#09; where space is allowed-->
+
+        <!-- Comment   -->
+        <EOL_SPAN TYPE="COMMENT4">##/</EOL_SPAN>  <!-- By Axel: "comment out" -->
+        <EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+
+        <!-- Invalid Integers -->
+        <SEQ_REGEXP HASH_CHAR=" 0" TYPE="INVALID"> 0[0-9_]+</SEQ_REGEXP>
+
+        <!-- Array of Tables with bar ID -->
+        <SEQ_REGEXP 
+        AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="[["  
+        TYPE="KEYWORD4">\[\[\s*[a-zA-Z0-9_.-]+[a-zA-Z0-9 _.-]+\]\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <!-- Array of Tables with string ID -->
+        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="["  
+        TYPE="KEYWORD4">\[\[\".*\"\]\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <!-- Tables-->
+        <!-- Tables with bar ID-->
+        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="["  
+        TYPE="COMMENT2">\[\s*(?:[a-zA-Z0-9_.-])[a-zA-Z0-9 _.-]+\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <!-- Tables with string ID -->
+        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="["  
+        TYPE="COMMENT2">\[\".*\"\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <!-- Bar Keywords -->
+        <SEQ_REGEXP 
+            HASH_CHARS="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-" 
+            TYPE="KEYWORD2" 
+            AT_WHITESPACE_END="TRUE">[A-Za-z0-9_+]*\s*(?==)</SEQ_REGEXP>
+
+        <!-- String and Literal Keywords -->
+        <SEQ_REGEXP 
+        HASH_CHARS="&quot;'" 
+        TYPE="KEYWORD2" AT_WHITESPACE_END="TRUE">(['"])[^']+\1\s*(?==)</SEQ_REGEXP>
+
+        <!-- Datetime -->
+        <!-- Example: 1979-05-27T00:32:00.999999-07:00 -->
+        <SEQ_REGEXP 
+            HASH_CHARS="123456789" 
+            TYPE="KEYWORD4">[1-9][0-9]*-[0-9][0-9]-[0-9][0-9](?:T[0-9][0-9]:[0-9][0-9]:[0-9][0-9])?(?:\.\d+)?(?:Z|[+-][0-9][0-9]:[0-9][0-9])?</SEQ_REGEXP>
+
+        <!-- Triple-quoted Strings -->
+        <SPAN TYPE="LITERAL2"  MATCH_TYPE="OPERATOR" >
+            <BEGIN>'''</BEGIN>
+            <END>'''</END>
+        </SPAN>
+        <!-- Triple-quoted Literals -->
+        <SPAN TYPE="LITERAL1"  MATCH_TYPE="OPERATOR">
+            <BEGIN>"""</BEGIN>
+            <END>"""</END>
+        </SPAN>
+
+        <!-- Standard Strings -->
+        <SPAN TYPE="LITERAL1"  MATCH_TYPE="OPERATOR">
+            <BEGIN>"</BEGIN>
+            <END>"</END>
+        </SPAN>
+
+        <!-- Standard literals -->
+        <SPAN TYPE="LITERAL2"  MATCH_TYPE="OPERATOR">
+            <BEGIN>'</BEGIN>
+            <END>'</END>
+        </SPAN>
+    </RULES>
+</MODE>
