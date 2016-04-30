@@ -55,6 +55,13 @@
     ^  [  1 ]  ,  \n 
     ^  [  1 ]  ]  \n 
     ^  [ "..." ]  ,  \n
+
+   XML special characters:
+    <	&lt;
+    >	&gt;
+    &	&amp;
+    "	&quot;
+    '	&apos;
 -->
 
 <MODE>
@@ -71,12 +78,12 @@
 
     </PROPS>
     
+    <!--TODO: allow TAB = &#09; where space is allowed-->
+
     <RULES IGNORE_CASE="FALSE"  
         ESCAPE="\"   
         HIGHLIGHT_DIGITS="TRUE"  
         DIGIT_RE="([1-9]([0-9_]*[0-9])?)|([0-9]([0-9_]*[0-9])?[Ee]([0-9]([0-9_]*[0-9])?)?)" > 
-
-        <!--TODO: allow TAB = &#09; where space is allowed-->
 
         <!-- Comment   -->
         <EOL_SPAN TYPE="COMMENT4">##/</EOL_SPAN>  <!-- By Axel: "comment out" -->
@@ -85,44 +92,61 @@
         <!-- Invalid Integers -->
         <SEQ_REGEXP HASH_CHAR=" 0" TYPE="INVALID"> 0[0-9_]+</SEQ_REGEXP>
 
-        <!-- Array of Tables with bar ID -->
-        <SEQ_REGEXP 
-        AT_WHITESPACE_END="TRUE" 
-        HASH_CHAR="[["  
-        TYPE="KEYWORD4">\[\[\s*[a-zA-Z0-9_.-]+[a-zA-Z0-9 _.-]+\]\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+		<IMPORT DELEGATE="KEYWORDS" />
+		<IMPORT DELEGATE="TABLES" />
+    </RULES>
 
-        <!-- Array of Tables with string ID -->
-        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
-        HASH_CHAR="["  
-        TYPE="KEYWORD4">\[\[\".*\"\]\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
 
-        <!-- Tables-->
-        <!-- Tables with bar ID-->
-        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
-        HASH_CHAR="["  
-        TYPE="COMMENT2">\[\s*(?:[a-zA-Z0-9_.-])[a-zA-Z0-9 _.-]+\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+	<RULES SET="KEYWORDS" 
+	    IGNORE_CASE="FALSE"  
+        ESCAPE="\"   
+        HIGHLIGHT_DIGITS="TRUE"  
+        DIGIT_RE="([1-9]([0-9_]*[0-9])?)|([0-9]([0-9_]*[0-9])?[Ee]([0-9]([0-9_]*[0-9])?)?)">
 
-        <!-- Tables with string ID -->
-        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
-        HASH_CHAR="["  
-        TYPE="COMMENT2">\[\".*\"\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+        <!-- Comment   -->
+        <EOL_SPAN TYPE="COMMENT4">##/</EOL_SPAN>  <!-- By Axel: "comment out" -->
+        <EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+
+        <!-- Invalid Integers -->
+        <SEQ_REGEXP HASH_CHAR=" 0" TYPE="INVALID"> 0[0-9_]+</SEQ_REGEXP>
 
         <!-- Bar Keywords -->
         <SEQ_REGEXP 
             HASH_CHARS="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-" 
             TYPE="KEYWORD2" 
-            AT_WHITESPACE_END="TRUE">[A-Za-z0-9_+]*\s*(?==)</SEQ_REGEXP>
+            DELEGATE="VALUES"
+            AT_WHITESPACE_END="TRUE">(?x)
+            [A-Za-z0-9_+-]*
+            \s*
+            (?==)
+        </SEQ_REGEXP>
 
         <!-- String and Literal Keywords -->
         <SEQ_REGEXP 
-        HASH_CHARS="&quot;'" 
-        TYPE="KEYWORD2" AT_WHITESPACE_END="TRUE">(['"])[^']+\1\s*(?==)</SEQ_REGEXP>
+            HASH_CHARS="&quot;'" 
+            DELEGATE="VALUES"
+            TYPE="KEYWORD2" AT_WHITESPACE_END="TRUE">(?x)
+            (['"])
+            .+      # There was this, before:  [^']+  . Why?
+            \1
+            \s*
+            (?==)
+        </SEQ_REGEXP>
+	</RULES>
 
-        <!-- Datetime -->
-        <!-- Example: 1979-05-27T00:32:00.999999-07:00 -->
-        <SEQ_REGEXP 
-            HASH_CHARS="123456789" 
-            TYPE="KEYWORD4">[1-9][0-9]*-[0-9][0-9]-[0-9][0-9](?:T[0-9][0-9]:[0-9][0-9]:[0-9][0-9])?(?:\.\d+)?(?:Z|[+-][0-9][0-9]:[0-9][0-9])?</SEQ_REGEXP>
+
+	<RULES SET="VALUES" 
+	    IGNORE_CASE="FALSE"  
+        ESCAPE="\"   
+        HIGHLIGHT_DIGITS="TRUE"  
+        DIGIT_RE="([1-9]([0-9_]*[0-9])?)|([0-9]([0-9_]*[0-9])?[Ee]([0-9]([0-9_]*[0-9])?)?)">
+
+        <!-- Comment   -->
+        <EOL_SPAN TYPE="COMMENT4">##/</EOL_SPAN>  <!-- By Axel: "comment out" -->
+        <EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+
+        <!-- Invalid Integers -->
+        <SEQ_REGEXP HASH_CHAR=" 0" TYPE="INVALID"> 0[0-9_]+</SEQ_REGEXP>
 
         <!-- Triple-quoted Strings -->
         <SPAN TYPE="LITERAL2"  MATCH_TYPE="OPERATOR" >
@@ -146,5 +170,54 @@
             <BEGIN>'</BEGIN>
             <END>'</END>
         </SPAN>
-    </RULES>
+
+        <!-- Datetime -->
+        <!-- Example: 1979-05-27T00:32:00.999999-07:00 -->
+        <SEQ_REGEXP 
+            HASH_CHARS="123456789" 
+            TYPE="KEYWORD4">[1-9][0-9]*-[0-9][0-9]-[0-9][0-9](?:T[0-9][0-9]:[0-9][0-9]:[0-9][0-9])?(?:\.\d+)?(?:Z|[+-][0-9][0-9]:[0-9][0-9])?</SEQ_REGEXP>
+
+		<IMPORT DELEGATE="KEYWORDS" />
+		<IMPORT DELEGATE="TABLES" />
+	</RULES>
+
+
+	<RULES SET="TABLES" 
+	    IGNORE_CASE="FALSE"  
+        ESCAPE="\"   
+        HIGHLIGHT_DIGITS="TRUE"  
+        DIGIT_RE="([1-9]([0-9_]*[0-9])?)|([0-9]([0-9_]*[0-9])?[Ee]([0-9]([0-9_]*[0-9])?)?)">
+
+        <!-- Comment   -->
+        <EOL_SPAN TYPE="COMMENT4">##/</EOL_SPAN>  <!-- By Axel: "comment out" -->
+        <EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+
+        <!-- Invalid Integers -->
+        <SEQ_REGEXP HASH_CHAR=" 0" TYPE="INVALID"> 0[0-9_]+</SEQ_REGEXP>
+
+        <!-- Array of Tables with bar ID -->
+        <SEQ_REGEXP 
+        AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="[["  
+        TYPE="KEYWORD4">\[\[\s*[a-zA-Z0-9_.-]+[a-zA-Z0-9 _.-]+\]\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <!-- Array of Tables with string ID -->
+        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="[["  
+        TYPE="KEYWORD4">\[\[\".*\"\]\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <!-- Tables-->
+        <!-- Tables with bar ID-->
+        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="["  
+        TYPE="COMMENT2">\[\s*(?:[a-zA-Z0-9_.-])[a-zA-Z0-9 _.-]+\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <!-- Tables with string ID -->
+        <SEQ_REGEXP AT_WHITESPACE_END="TRUE" 
+        HASH_CHAR="["  
+        TYPE="COMMENT2">\[\".*\"\](?=\s*(?:\#.*)?$)</SEQ_REGEXP>
+
+        <IMPORT DELEGATE="KEYWORDS" />
+		<IMPORT DELEGATE="TABLES" />
+	</RULES>
 </MODE>
